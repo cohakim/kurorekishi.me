@@ -1,0 +1,86 @@
+/**
+*
+* Variables
+*
+**/
+
+/* Colors */
+
+$c_primaryGreen: #7dad83;
+$c_primaryGreenActive: darken($c_primaryGreen, 10%);
+$c_primaryBlueGreen: #5eaaa7;
+$c_primaryBlueGreenActive: darken($c_primaryBlueGreen, 10%);
+$c_primaryBlue: #36a1ce;
+$c_primaryBlueActive: #339ac7;
+$c_primaryLightBlue: #3cabda;
+$c_primaryLightBlueActive: darken($c_primaryLightBlue, 10%);
+$c_primaryLightPurple: #de4c81;
+$c_primaryLightPurpleActive: darken($c_primaryLightPurple, 10%);
+$c_primaryYellow: #fecd5f;
+$c_primaryYellowActive: darken($c_primaryYellow, 10%);
+$c_primaryGrey: #e6e7e7;
+$c_primaryGreyActive: darken($c_primaryGrey, 10%);
+$c_primaryOrange: #f87e55;
+$c_primaryOrangeActive: darken($c_primaryOrange, 10%);
+$c_primaryRed: #e57871;
+$c_primaryRedActive: #d16e68;
+$c_alert: lighten(#fc665f, 5%);
+$c_success: lighten(#b3cc57, 10%);
+$c_secondary: #eaeaea;
+$c_secondaryText: darken($c_secondary, 20%);
+
+/* General Variables */
+
+$c_primaryColor: $c_primaryLightBlue;
+$c_primaryColorActive: $c_primaryLightBlueActive;
+$c_secondaryColor: #fb9537;
+$c_secondaryColorActive: darken($c_secondaryColor, 5%);
+$c_primaryDark: #34393d;
+$c_lightBg: #fff;
+$c_darkBg: #f4f4f4;
+
+$c_heading: #333;
+$c_BodyText: #4f5759;
+
+$ff_heading: Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+$ff_body: Roboto, 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;;
+
+/* =General Variables */
+
+
+
+/* Typography */
+
+
+
+/* =Typography */
+
+
+
+/* Sidebar */
+
+$c_menuBg: $c_primaryDark;
+$c_menuChildBg: #404549;
+
+$w_sidebar: 260px;
+$h_sidebarMenuItem: 46px;
+
+/* =Sidebar */
+
+
+
+/* Header */
+
+$c_headerBg: $c_primaryColor;
+
+$h_header: 48px;
+
+/* =Header */
+
+
+
+/* Photoswipe */
+
+$h_photswipeToolbar: 44px;
+
+/* =Photoswipe */

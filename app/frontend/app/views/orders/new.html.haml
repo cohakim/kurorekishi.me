@@ -1,25 +1,24 @@
-- if @form.errors.present?
-  - @form.errors.full_messages.each do |message|
-    = message
+- content_for :scripts do
+  :javascript
+    $(document).ready(function() {
+      $('#submit').click(function(e) {
+        var collect_method = $('#job_parameter_collect_method').val();
+        var archive_url    = $('#job_parameter_archive_url').val();
+        if (collect_method == 'archive' && archive_url == '') {
+          e.preventDefault();
+          alert('全ツイート履歴のアップロードが必要です');
+          return false;
+        }
+      });
+    });
 
-= current_user.try(:name)
-= form_with url: order_path, method: :post, local: true do |f|
-  = f.hidden_field :collect_method, value: @form.collect_method
-  %br
-  = f.text_area :start_message, value: @form.start_message, rows: 2, maxlength: 135
-  %br
-  = f.text_area :finish_message, value: @form.finish_message, rows: 2, maxlength: 135
-  %br
-  = f.label :protect_reply
-  = f.check_box :protect_reply, checked: false
-  %br
-  = f.label :protect_favorite
-  = f.check_box :protect_favorite, checked: false
-  %br
-  = f.text_field :collect_from
-  %br
-  = f.text_field :collect_to
-  %br
-  = f.submit '削除を開始する'
+#content.blog.bg-dark
+  #new
+    = form_with url: order_path, method: :post, local: true do |f|
+      = render 'orders/new/account'
+      = render 'orders/new/method',  form: f
+      = render 'orders/new/options', form: f
+      = render 'orders/new/notices', form: f
 
-
+      .primary-button.text-center(style='margin:8px')
+        = f.submit '削除を開始する', class: 'button radius alert', id: 'submit'

@@ -1,0 +1,18 @@
+/**
+*
+* Mixins
+*
+**/
+
+@mixin noFlicker($value: hidden) {
+	backface-visibility: $value;
+	-webkit-backface-visibility: $value;
+	-moz-backface-visibility: $value;
+	-ms-backface-visibility: $value;
+}
+
+@mixin noSelect() {
+	@include user-select(none);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+}

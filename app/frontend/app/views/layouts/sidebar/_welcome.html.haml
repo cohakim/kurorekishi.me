@@ -1,0 +1,16 @@
+%a.nav-with-ul{href: 'javascript:void(0);'} このサイトについて
+%span.nav-child-container
+  %span.nav-child-trigger +
+%ul{style: "height: 0;"}
+  %li
+    = link_to 'お知らせ', blog_url
+  %li
+    = link_to '使い方', usage_path
+  %li
+    = link_to 'よくある質問', faq_path
+  %li
+    = link_to '利用規約', terms_path
+  %li
+    = link_to 'プライバシーポリシー', privacy_path
+  %li
+    = link_to 'お問い合わせ', contact_path

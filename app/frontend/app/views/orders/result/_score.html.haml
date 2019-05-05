@@ -1,0 +1,32 @@
+#score
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        処理結果
+      %dl
+        %dt
+          登録日時
+        %dd
+          = order.created_at.to_s(:db)
+      %dl
+        %dt
+          完了状態
+        %dd
+          = order.transition_state
+      %dl
+        %dt
+          処理時間
+        %dd
+          = order.processing_time
+      %dl
+        %dt
+          処理対象
+        %dd
+          = order.collect_count
+          件
+      %dl
+        %dt
+          削除件数
+        %dd
+          = order.destroy_count
+          件

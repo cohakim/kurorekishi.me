@@ -1,12 +1,15 @@
+- content_for :page_scripts do
+  = render 'application/adsense/page_level_ads'
+
 #content-fullwidth.blog.blog-single
   #getstarted
     %article.post.format-standard.text-center
       = flash_messages
-      .wrapped-content(style='padding-top:0px;padding-bottom:0px;')
-        .primary-button
-          - if logged_in?
-            = link_to order_path, class: 'button radius' do
-              ツイッターでログイン
-          - else
-            = link_to signin_path, method: :post, class: 'button radius' do
-              ツイッターでログイン
+      = render 'roots/show/primary'
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        = render partial: 'application/adsense/rectangle'
+      = render 'roots/show/social'
+      = render 'roots/show/features'
+      = render 'roots/show/customers'
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        = render partial: 'application/adsense/rectangle'

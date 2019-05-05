@@ -1,0 +1,43 @@
+- content_for :scripts do
+  = render 'orders/scripts/method'
+
+= form.hidden_field :collect_method, value: @form.collect_method
+= form.hidden_field :archive_url, value: ''
+
+#method
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        ツイートの取得方法
+      %dl.sub-nav
+        %dd.active
+          = link_to 'javascript:void(0);', onclick: '$("#job_parameter_collect_method").val("timeline");', id: 'timeline' do
+            タイムライン
+        %dd
+          = link_to 'javascript:void(0)', onclick: '$("#job_parameter_collect_method").val("archive");', id: 'twitter-archive' do
+            全ツイート履歴
+      .timeline
+        %p
+          タイムラインからツイートを取得します。
+          新着3200件のツイートを削除できます。
+      .twitter-archive(style='display:none;')
+        %p
+          <strong>「全ツイート履歴」</strong>からツイートを取得します。全てのツイートを削除できます。<br>
+          スマートフォンには対応していません。
+
+#archive
+  %article.post.format-aside.twitter-archive(style='display:none;')
+    .wrapped-content
+      %h2.blog-title
+        全ツイート履歴
+      #twitter-archive-uploader(style='margin-top:20px;')
+        = react_component('Uploader')
+      %p
+        ダウンロードした<strong>「tweets.zip」</strong>をそのままアップロードしてください<br>
+        = link_to usage_path, target: '_blank', style:'text-decoration:underline;' do
+          「全ツイート履歴」のダウンロード方法
+    %hr.no-margin
+    .wrapped-content
+      %p
+        Internet Explorer をご利用の場合、アップロードに失敗する場合があります。<br>
+        アップロードに失敗する場合は <a href='http://www.google.co.jp/chrome/intl/ja/landing_ie.html'>Google Chrome</a> をお試しください。

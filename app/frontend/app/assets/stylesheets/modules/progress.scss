@@ -1,0 +1,130 @@
+@import "compass-mixins/lib/compass";
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Progress
+*
+**/
+
+.progress {
+	background-color: transparent;
+	height: 1.5625em;
+	border: 1px solid #cccccc;
+	padding: 0.125em;
+	margin-bottom: 0.625em;
+
+	.meter {
+		background: #2ba6cb;
+		height: 100%;
+		display: block;
+	}
+
+	&.radius {
+		border-radius: 3px;
+
+		.meter {
+			border-radius: 2px;
+		}
+	}
+
+	&.round {
+		border-radius: 1000px;
+
+		.meter {
+			border-radius: 999px;
+		}
+	}
+}
+
+
+/* Colors */
+
+.progress{
+	padding: 0;
+	height: 30px;
+	border: none;
+	background: $c_darkBg;
+
+	color: $c_BodyText;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 31px;
+
+	.meter{
+		background: lighten($c_primaryColor, 10%);
+	}
+
+	&.green{
+		.meter{
+			background: lighten($c_primaryGreen, 20%);
+		}
+	}
+
+	&.bluegreen{
+		.meter{
+			background: lighten($c_primaryBlueGreen, 20%);
+		}
+	}
+
+	&.lightblue{
+		.meter{
+			background: lighten($c_primaryLightBlue, 20%);
+		}
+	}
+
+	&.lightpurple{
+		.meter{
+			background: lighten($c_primaryLightPurple, 30%);
+		}
+	}
+
+	&.blue{
+		.meter{
+			background: lighten($c_primaryBlue, 25%);
+		}
+	}
+
+	&.yellow{
+		.meter{
+			background: lighten($c_primaryYellow, 15%);
+		}
+	}
+
+	&.orange{
+		.meter{
+			background: lighten($c_primaryOrange, 20%);
+		}
+	}
+
+	&.grey{
+		.meter{
+			background: $c_primaryGrey;
+		}
+	}
+
+	&.red{
+		.meter{
+			background: lighten($c_primaryRed, 10%);
+		}
+	}
+
+	&.success{
+		.meter{
+			background: lighten($c_success, 3%);
+		}
+	}
+
+	&.disabled{
+		.meter{
+			background: lighten($c_primaryRed, 5%);
+		}
+	}
+
+	&.alert{
+		.meter{
+			background: lighten($c_alert, 3%);
+		}
+	}
+}

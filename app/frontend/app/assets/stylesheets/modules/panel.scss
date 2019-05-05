@@ -1,0 +1,148 @@
+@import "compass-mixins/lib/compass";
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Progress
+*
+**/
+
+/* Panel */
+
+.panel{
+	@include box-shadow(0 0 0 1px $c_secondary inset);
+	padding: 24px 25px;
+	border: none;
+	background: none;
+	color: $c_BodyText;
+	font-weight: 400;
+	display: block;
+	font-family: $ff_body;
+	margin: 1em 0;
+
+	&.radius {
+		border-radius: 3px;
+	}
+
+	&.round {
+		border-radius: 1000px;
+	}
+
+	p{
+		color: $c_secondaryText;
+		font-size: 14px;
+		margin: 0;
+		line-height: 1.8;
+	}
+
+	&.callout{
+		@include box-shadow(none);
+		padding: 24px 25px;
+		border: none;
+		background: $c_alert;
+
+		p{
+			color: #fff;
+		}
+	}
+
+	&.green{
+		@include box-shadow(none);
+		background: lighten($c_primaryGreen, 20%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.bluegreen{
+		@include box-shadow(none);
+		background: lighten($c_primaryBlueGreen, 20%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.lightblue{
+		@include box-shadow(none);
+		background: lighten($c_primaryLightBlue, 20%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.lightpurple{
+		@include box-shadow(none);
+		background: lighten($c_primaryLightPurple, 30%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.blue{
+		@include box-shadow(none);
+		background: lighten($c_primaryBlue, 25%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.yellow{
+		@include box-shadow(none);
+		background: lighten($c_primaryYellow, 15%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.orange{
+		@include box-shadow(none);
+		background: lighten($c_primaryOrange, 20%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.grey{
+		@include box-shadow(none);
+		background: $c_primaryGrey;
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.red{
+		@include box-shadow(none);
+		background: lighten($c_primaryRed, 10%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.success{
+		@include box-shadow(none);
+		background: $c_success;
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+
+	&.disabled{
+		@include box-shadow(none);
+		background: lighten($c_primaryRed, 5%);
+
+		p{
+			color: $c_BodyText;
+		}
+	}
+}

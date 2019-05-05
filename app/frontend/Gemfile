@@ -23,13 +23,13 @@ gem 'browser'
 gem 'rails-timeago'
 
 # js
-gem 'webpacker', '~> 2.0'
-gem 'webpacker-react', '~> 0.3.1'
+gem 'webpacker'
+gem 'webpacker-react'
 gem 'js-routes'
 
 # css preprocessor
 gem 'sass'
-gem 'sassc-rails'
+gem 'rails-uikit'
 gem 'uglifier', '>= 1.3.0'
 
 # jquery packages
@@ -37,11 +37,6 @@ gem 'jquery-rails'
 gem 'modernizr-rails'
 gem 'pickadate-rails'
 gem 'remodal-rails'
-
-# css packages
-gem 'normalize-rails'
-gem 'bourbon'
-gem 'google-webfonts-rails', github: 'masarakki/google-webfonts-rails', branch: 'for-rails5'
 
 # ==============================================================================
 
@@ -70,6 +65,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'annotate'
 
+  gem 'foreman'
   gem 'bullet'
   gem 'awesome_print', require: false
   gem 'i18n_generators'

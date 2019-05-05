@@ -1,4 +1,8 @@
-= @order.id
+#content.blog.bg-dark
+  #result
+    = render 'orders/result/score', order: @order
+    = render 'orders/result/support', order: @order
 
-= form_with url: close_order_path, method: :patch, local: true do |f|
-  = f.submit 'close'
+  .primary-button.text-center(style='margin:8px')
+    = link_to close_order_path, method: :patch, class: 'button radius' do
+      DONE

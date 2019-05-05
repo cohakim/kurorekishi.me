@@ -1,0 +1,6 @@
+#account
+  %article.post.format-aside
+    .wrapped-content
+      %dl
+        %dt アカウント
+        %dd= current_user.try(:name)

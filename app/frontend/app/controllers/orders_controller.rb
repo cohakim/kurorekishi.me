@@ -7,11 +7,11 @@ class OrdersController < ApplicationController
   end
 
   def result
-    @order = find_order
+    @order = find_order.decorate
   end
 
   def new
-    @form = OrderForm.new
+    @form = OrderForm.new(order_params)
   end
 
   def create
@@ -62,7 +62,7 @@ class OrdersController < ApplicationController
     params.permit(
       :collect_method, :archive_url,
       :start_message, :finish_message,
-      :protect_reply, :protect_reply, :collect_from, :collect_to,
+      :protect_reply, :protect_favorite, :collect_from, :collect_to,
     ).merge(user_id: current_user.id)
   end
 end
