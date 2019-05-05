@@ -1,0 +1,9 @@
+!!! 5
+%html(lang='en')
+  %head
+    %title 黒歴史クリーナー
+    = csrf_meta_tags
+    = yield :page_scripts
+  %body
+    = yield
+    = yield :scripts

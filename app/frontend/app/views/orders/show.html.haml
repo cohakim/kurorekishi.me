@@ -1,0 +1,7 @@
+= @order.id
+
+= form_with url: abort_order_path, method: :patch, local: true do |f|
+  = f.submit 'abort'
+
+= form_with url: confirm_order_path, method: :patch, local: true do |f|
+  = f.submit 'confirm'

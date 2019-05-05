@@ -1,0 +1,56 @@
+create_table 'users', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
+  t.string :token,  null: false
+  t.string :secret, null: false
+  t.string :name
+
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+end
+
+create_table 'orders', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
+  t.bigint   :user_id, null: false
+
+  t.integer  :transition_state,  null: false
+  t.integer  :progression_state, null: false
+
+  t.integer  :collect_count, default: 0, null: false
+  t.integer  :destroy_count, default: 0, null: false
+
+  t.datetime :processed_at
+  t.datetime :confirmed_at
+  t.datetime :closed_at
+
+  t.datetime :collected_at
+  t.datetime :destroyed_at
+
+  t.datetime :created_at, null: false
+  t.datetime :updated_at, null: false
+end
+
+add_index "orders", ['user_id'],           using: :btree
+add_index 'orders', ['transition_state'],  using: :btree
+add_index 'orders', ['progression_state'], using: :btree
+add_foreign_key 'orders', 'users'
+
+create_table 'parameters', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4' do |t|
+  t.bigint     :order_id,         null: false
+
+  # extras
+  t.datetime   :signedin_at,      null: false
+
+  # options
+  t.integer    :collect_method,   null: false
+  t.text       :archive_url
+  t.boolean    :protect_reply,    default: false, null: false
+  t.boolean    :protect_favorite, default: false, null: false
+  t.date       :collect_from
+  t.date       :collect_to
+  t.text       :start_message
+  t.text       :finish_message
+
+  t.datetime 'created_at', null: false
+  t.datetime 'updated_at', null: false
+end
+
+add_index 'parameters', ['order_id'], unique: true
+add_foreign_key 'parameters', 'orders'

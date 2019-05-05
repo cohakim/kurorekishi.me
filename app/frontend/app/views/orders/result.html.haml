@@ -1,0 +1,4 @@
+= @order.id
+
+= form_with url: close_order_path, method: :patch, local: true do |f|
+  = f.submit 'close'
