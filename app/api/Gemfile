@@ -6,21 +6,8 @@ ruby '2.6.3'
 # engine
 gem 'base', path: '../base'
 
-# base
-gem 'rails', '~> 5.2.2'
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'configatron'
-
-# database
-gem 'mysql2'
-gem 'ridgepole'
-
-# web
+# server
 gem 'puma', '~> 3.7'
-
-# model
-gem 'aasm'
-gem 'active_hash'
 
 # value object
 gem 'dry-types'
@@ -29,33 +16,48 @@ gem 'dry-struct'
 # serialize
 gem 'active_model_serializers', '~> 0.10.0'
 
-# form
-gem 'reform-rails'
-gem 'dry-validation'
+# ==============================================================================
+
+# base
+gem 'rails', '~> 5.2.3'
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'configatron'
+
+# database
+gem 'mysql2'
+gem 'ridgepole'
+
+# model
+gem 'aasm'
+gem 'active_hash'
 
 # sdk
 gem 'aws-sdk-s3'
-
-group :production do
-  gem 'bugsnag'
-end
 
 # dev utils
 group :development do
   gem 'rubocop', require: false
   gem 'annotate'
+
+  gem 'foreman'
+  gem 'bullet'
+  gem 'awesome_print', require: false
+  gem 'i18n_generators'
 end
 
 # testing
 group :test do
   gem 'nyan-cat-formatter'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
   gem 'webmock'
 end
 
-# development tools
+# production
+group :production do
+  gem 'bugsnag'
+end
+
+# development/test
 group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -66,4 +68,8 @@ group :development, :test do
   gem 'pry-byebug'
 
   gem 'listen', '>= 3.0.5', '< 3.2'
+
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
+

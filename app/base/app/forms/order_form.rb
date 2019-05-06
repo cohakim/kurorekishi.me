@@ -16,18 +16,34 @@ class OrderForm
 
   validates :user_id, :collect_method, presence: true
 
+  def notification_message
+    @notification_message ||= NotificationMessage.find_by_random
+  end
+
+  def user
+    @user ||= User.find(user_id)
+  end
+
+  def start_message
+    "@#{user.name} #{notification_message.start}"
+  end
+
+  def finish_message
+    "@#{user.name} #{notification_message.finish}"
+  end
+
   def save!
     order = Order.new do |order|
       order.user_id = user_id
       order.build_parameter do |parameter|
         parameter.collect_method   = collect_method
-        parameter.archive_url      = archive_url
+        parameter.archive_url      = archive_url.presence
         parameter.start_message    = start_message
         parameter.finish_message   = finish_message
         parameter.protect_reply    = protect_reply
         parameter.protect_favorite = protect_favorite
-        parameter.collect_from     = collect_from
-        parameter.collect_to       = collect_to
+        parameter.collect_from     = collect_from.presence
+        parameter.collect_to       = collect_to.presence
         parameter.signedin_at      = signedin_at
       end
     end

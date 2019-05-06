@@ -11,10 +11,8 @@
 #
 
 class User < ApplicationRecord
-  has_many :entries, dependent: :destroy
-
   composed_of :user_info, class_name: 'UserInfo', constructor: :construct,
-    mapping: [%w(id uid), %w(name nickname)]
+    mapping: [%w(name nickname)]
 
   composed_of :credentials, class_name: 'Credential', constructor: :construct,
     mapping: [%w(token access_token), %w(secret access_token_secret)]

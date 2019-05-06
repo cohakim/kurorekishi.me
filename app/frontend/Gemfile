@@ -53,10 +53,6 @@ gem 'ridgepole'
 gem 'aasm'
 gem 'active_hash'
 
-# form
-gem 'reform-rails'
-gem 'dry-validation'
-
 # sdk
 gem 'aws-sdk-s3'
 
