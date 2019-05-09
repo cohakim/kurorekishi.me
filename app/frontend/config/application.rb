@@ -9,7 +9,7 @@ module Frontend
     config.load_defaults 5.2
 
     # paths
-    config.paths.add 'config/database', with: Base::Engine.root.join('config', 'database.yml')
+    config.paths.add 'config/database', with: Shared::Engine.root.join('config', 'database.yml')
 
     # locales
     config.i18n.available_locales         = %i(ja en)

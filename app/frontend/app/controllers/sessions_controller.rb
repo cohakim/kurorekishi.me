@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if signin.valid?
       signin.save!
 
-      session[:user_id] = signin.id
+      session[:user_id] = signin.user_id
       redirect_to new_order_path
     else
       reset_session

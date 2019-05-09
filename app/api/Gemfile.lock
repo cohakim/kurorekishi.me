@@ -1,7 +1,7 @@
 PATH
-  remote: ../base
+  remote: ../shared
   specs:
-    base (0.1.0)
+    shared (0.1.0)
       rails (~> 5.2.2)
 
 GEM
@@ -289,7 +289,6 @@ DEPENDENCIES
   annotate
   awesome_print
   aws-sdk-s3
-  base!
   bootsnap (>= 1.1.0)
   bugsnag
   bullet
@@ -311,6 +310,7 @@ DEPENDENCIES
   ridgepole
   rspec-rails
   rubocop
+  shared!
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
