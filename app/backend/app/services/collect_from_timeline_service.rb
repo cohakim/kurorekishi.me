@@ -5,7 +5,7 @@ class CollectFromTimelineService
       twitter_client.retrieve_timeline do |tweet|
         collect_policy = CollectPolicy.new(
           collect_parameter: collect_params,
-          tweet: tweet
+          tweet: NormalizedStatus.new(tweet),
         )
         yield tweet if collect_policy.can_destroy?
       end

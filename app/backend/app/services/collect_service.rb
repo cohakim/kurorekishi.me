@@ -17,9 +17,6 @@ class CollectService < Patterns::Service
     collect_log_book.save
 
     order.finish_collect!(collect_count: row_count)
-  rescue => ex
-    order.fail!
-    raise ex
   end
 
   private

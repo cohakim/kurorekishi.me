@@ -5,71 +5,10 @@ ruby '2.6.3'
 
 # engine
 gem 'shared', path: '../shared'
+eval_gemfile "../shared/Gemfile.shared"
 
 # server
 gem 'puma', '~> 3.7'
 
-# value object
-gem 'dry-types'
-gem 'dry-struct'
-
 # serialize
 gem 'active_model_serializers', '~> 0.10.0'
-
-# ==============================================================================
-
-# base
-gem 'rails', '~> 5.2.3'
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'configatron'
-
-# database
-gem 'mysql2'
-gem 'ridgepole'
-
-# model
-gem 'aasm'
-gem 'active_hash'
-
-# sdk
-gem 'aws-sdk-s3'
-
-# dev utils
-group :development do
-  gem 'rubocop', require: false
-  gem 'annotate'
-
-  gem 'foreman'
-  gem 'bullet'
-  gem 'awesome_print', require: false
-  gem 'i18n_generators'
-end
-
-# testing
-group :test do
-  gem 'nyan-cat-formatter'
-  gem 'rspec-rails'
-  gem 'webmock'
-end
-
-# production
-group :production do
-  gem 'bugsnag'
-end
-
-# development/test
-group :development, :test do
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-
-  gem 'byebug'
-  gem 'pry-rails'
-  gem 'pry-byebug'
-
-  gem 'listen', '>= 3.0.5', '< 3.2'
-
-  gem 'factory_bot_rails'
-  gem 'faker'
-end
-

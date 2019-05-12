@@ -11,8 +11,54 @@ services:
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
-      SECRET_KEY_BASE:
-      CLASHROYALE_API_TOKEN:
+      RAILS_MASTER_KEY: abc
+      SECRET_KEY_BASE: abc
+    entrypoint: ["./entrypoint.sh"]
+    command: ["rails", "server", "-b", "0.0.0.0"]
+    ports:
+      - '3000:3000'
+    tty: true
+    stdin_open: true
+    volumes:
+      - bundle:/bundle:cached
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: ../
+      dockerfile: build/frontend/Dockerfile
+    image: clean_them_all/frontend:latest
+    container_name: clean_them_all_frontend
+    environment:
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: 'true'
+      RAILS_SERVE_STATIC_FILES: 'true'
+      DATABASE_URL: mysql2://root:@db:3306
+      RAILS_MASTER_KEY: abc
+      SECRET_KEY_BASE: abc
+    entrypoint: ["./entrypoint.sh"]
+    command: ["rails", "server", "-b", "0.0.0.0"]
+    ports:
+      - '3000:3000'
+    tty: true
+    stdin_open: true
+    volumes:
+      - bundle:/bundle:cached
+    depends_on:
+      - db
+  backend:
+    build:
+      context: ../
+      dockerfile: build/backend/Dockerfile
+    image: clean_them_all/backend:latest
+    container_name: clean_them_all_backend
+    environment:
+      RAILS_ENV: production
+      RAILS_LOG_TO_STDOUT: 'true'
+      RAILS_SERVE_STATIC_FILES: 'true'
+      DATABASE_URL: mysql2://root:@db:3306
+      RAILS_MASTER_KEY: abc
+      SECRET_KEY_BASE: abc
     entrypoint: ["./entrypoint.sh"]
     command: ["rails", "server", "-b", "0.0.0.0"]
     ports:

@@ -29,5 +29,5 @@ Rails.application.configure do
   config.log_tags                                   = [ :request_id ]
 
   # storage
-  config.active_storage.service = :amazon
+  config.active_storage.service = :local
 end

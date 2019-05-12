@@ -29,7 +29,8 @@ RUN \
 COPY app/base /app/base
 COPY app/frontend/Gemfile app/frontend/Gemfile.lock /app/frontend/
 RUN \
-  echo 'gem: --no-document' >> ~/.gemrc \
+  gem install bundler \
+  && echo 'gem: --no-document' >> ~/.gemrc \
   && cp ~/.gemrc /etc/gemrc \
   && chmod uog+r /etc/gemrc \
   && bundle config --global build.nokogiri --use-system-libraries \

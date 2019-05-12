@@ -1,7 +1,7 @@
 FROM ruby:2.6.3-alpine
 MAINTAINER cohakim "cohakim@gmail.com"
 
-WORKDIR /app/api
+WORKDIR /app/backend
 ENV RAILS_ENV production
 
 RUN \
@@ -26,8 +26,8 @@ RUN \
     mariadb-connector-c \
     tzdata
 
-COPY app/base /app/base
-COPY app/api/Gemfile app/api/Gemfile.lock /app/api/
+COPY app/shared /app/shared
+COPY app/backend/Gemfile app/backend/Gemfile.lock /app/backend/
 RUN \
   gem install bundler \
   && echo 'gem: --no-document' >> ~/.gemrc \
@@ -41,8 +41,8 @@ RUN bundle install --without test development
 
 RUN apk del build-dependencies
 
-COPY app/api /app/api
-COPY build/api/entrypoint.sh /app/api/
+COPY app/backend /app/backend
+COPY build/backend/entrypoint.sh /app/backend/
 
 ARG RAILS_MASTER_KEY
 

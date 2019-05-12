@@ -16,6 +16,10 @@ module Backend
 
     # paths
     config.paths.add 'config/database', with: Shared::Engine.root.join('config', 'database.yml')
+    config.active_storage.service_configurations = begin
+      config_file = Pathname.new(Shared::Engine.root.join("config/storage.yml"))
+      YAML.load(ERB.new(config_file.read).result) || {}
+    end
 
     # locales
     config.i18n.available_locales         = %i(ja en)
@@ -25,5 +29,9 @@ module Backend
 
     # logging
     config.logger = ActiveSupport::Logger.new(STDOUT)
+
+    # active_job
+    config.active_job.queue_adapter = :shoryuken
+    config.active_job.queue_name_prefix = Rails.env
   end
 end

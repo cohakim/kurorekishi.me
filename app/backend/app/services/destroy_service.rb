@@ -19,9 +19,6 @@ class DestroyService < Patterns::Service
     else
       order.finish_clean!(destroy_count: row_count)
     end
-  rescue => ex
-    order.fail!
-    raise ex
   end
 
   private
