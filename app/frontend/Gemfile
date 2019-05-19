@@ -24,7 +24,6 @@ gem 'browser'
 gem 'rails-timeago'
 
 # js
-gem 'mini_racer'
 gem 'webpacker'
 gem 'webpacker-react'
 gem 'js-routes'

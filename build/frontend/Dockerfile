@@ -24,6 +24,8 @@ RUN \
     libxml2 \
     libxslt \
     mariadb-connector-c \
+    nodejs \
+    yarn \
     tzdata
 
 COPY app/shared /app/shared
@@ -36,8 +38,11 @@ RUN \
   && bundle config --global build.nokogiri --use-system-libraries \
   && bundle config --global jobs 4 \
   && bundle config --global path /usr/local/bundle
-
 RUN bundle install --without test development
+
+COPY app/frontend/package.json /app/frontend/
+COPY app/frontend/yarn.lock /app/frontend/
+RUN yarn install
 
 RUN apk del build-dependencies
 
