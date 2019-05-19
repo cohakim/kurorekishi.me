@@ -26,7 +26,7 @@ RUN \
     mariadb-connector-c \
     tzdata
 
-COPY app/base /app/base
+COPY app/shared /app/shared
 COPY app/frontend/Gemfile app/frontend/Gemfile.lock /app/frontend/
 RUN \
   gem install bundler \

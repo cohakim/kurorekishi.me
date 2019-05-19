@@ -8,6 +8,10 @@ REPOSITORY := 081239106582.dkr.ecr.ap-northeast-1.amazonaws.com
 build:
 	docker build -f $(ROOT_PATH)/build/$(NAME)/Dockerfile -t $(PROJECT)/$(NAME):$(VERSION) $(ROOT_PATH) --squash
 
+.PHONY: prepare
+setup:
+	aws ecr create-repository --repository-name $(PROJECT)/$(NAME)
+
 .PHONY: push
 push:
 	$$(aws ecr get-login --no-include-email)
