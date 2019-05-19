@@ -11,8 +11,6 @@ services:
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
-      RAILS_MASTER_KEY: abc
-      SECRET_KEY_BASE: abc
     entrypoint: ["./entrypoint.sh"]
     command: ["rails", "server", "-b", "0.0.0.0"]
     ports:
@@ -29,13 +27,12 @@ services:
       dockerfile: build/frontend/Dockerfile
     image: clean_them_all/frontend:latest
     container_name: clean_them_all_frontend
+    env_file: ../.env
     environment:
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
-      RAILS_MASTER_KEY: abc
-      SECRET_KEY_BASE: abc
     entrypoint: ["./entrypoint.sh"]
     command: ["rails", "server", "-b", "0.0.0.0"]
     ports:
@@ -52,17 +49,14 @@ services:
       dockerfile: build/backend/Dockerfile
     image: clean_them_all/backend:latest
     container_name: clean_them_all_backend
+    env_file: ../.env
     environment:
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
-      RAILS_MASTER_KEY: abc
-      SECRET_KEY_BASE: abc
     entrypoint: ["./entrypoint.sh"]
-    command: ["rails", "server", "-b", "0.0.0.0"]
-    ports:
-      - '3000:3000'
+    command: ["bundle", "exec", "shoryuken", "-R", "-C", "config/shoryuken.yml"]
     tty: true
     stdin_open: true
     volumes:

@@ -42,6 +42,7 @@ RUN bundle install --without test development
 
 COPY app/frontend/package.json /app/frontend/
 COPY app/frontend/yarn.lock /app/frontend/
+RUN yarn install --check-files
 RUN yarn install
 
 RUN apk del build-dependencies

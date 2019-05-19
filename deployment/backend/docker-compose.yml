@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: 081239106582.dkr.ecr.ap-northeast-1.amazonaws.com/clean_them_all/api:latest
+    image: 081239106582.dkr.ecr.ap-northeast-1.amazonaws.com/clean_them_all/backend:latest
     env_file: ../.env.production
     entrypoint: ["./entrypoint.sh"]
     volumes:
@@ -11,7 +11,7 @@ services:
       options:
         awslogs-region: ap-northeast-1
         awslogs-group: clean_them_all
-        awslogs-stream-prefix: api
+        awslogs-stream-prefix: backend
 
 volumes:
   bundle:

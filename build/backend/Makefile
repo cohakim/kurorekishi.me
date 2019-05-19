@@ -9,7 +9,8 @@ build:
 	docker build -f $(ROOT_PATH)/build/$(NAME)/Dockerfile -t $(PROJECT)/$(NAME):$(VERSION) $(ROOT_PATH) --squash
 
 .PHONY: prepare
-setup:
+prepare:
+	$$(aws ecr get-login --no-include-email)
 	aws ecr create-repository --repository-name $(PROJECT)/$(NAME)
 
 .PHONY: push
