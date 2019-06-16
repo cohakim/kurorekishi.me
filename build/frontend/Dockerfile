@@ -40,16 +40,18 @@ RUN \
   && bundle config --global path /usr/local/bundle
 RUN bundle install --without test development
 
+ARG RAILS_MASTER_KEY
+ARG SECRET_KEY_BASE
+
 COPY app/frontend/package.json /app/frontend/
 COPY app/frontend/yarn.lock /app/frontend/
-RUN yarn install --check-files
-RUN yarn install
+RUN bundle exec yarn install --check-files
+RUN bundle exec yarn install
+RUN bundle exec rails assets:precompile
 
 RUN apk del build-dependencies
 
 COPY app/frontend /app/frontend
 COPY build/frontend/entrypoint.sh /app/frontend/
-
-ARG RAILS_MASTER_KEY
 
 RUN chmod a+x entrypoint.sh
