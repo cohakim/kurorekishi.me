@@ -9,24 +9,18 @@ class OrderDecorator < Draper::Decorator
   end
 
   def state_message
-    if processing?
-      case aasm(:progression).current_state
-      when :collecting
-        'ツイート取得中...'
-      when :cleaning
-        "#{destroy_count} / #{collect_count}"
-      end
-    elsif confirming?
-      case aasm(:progression).current_state
-      when :completed
-        '完了!'
-      when :aborted
-        'ユーザによりキャンセルされました'
-      when :failed
-        'エラーにより強制終了されました'
-      when :expired
-        '期間内に完了しなかったため、強制終了されました'
-      end
+    if object.collecting?
+      'ツイート取得中...'
+    elsif object.cleaning?
+      "#{destroy_count} / #{collect_count}"
+    elsif object.completed?
+      '完了!'
+    elsif object.aborted?
+      'ユーザによりキャンセルされました'
+    elsif object.failed?
+      'エラーにより強制終了されました'
+    elsif object.expired?
+      '期間内に完了しなかったため、強制終了されました'
     end
   end
 

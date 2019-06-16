@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :verify_active_order_exists, only: :show
+  before_action :verify_active_order_exists, only: :new
+  before_action :verify_active_order_not_exists, only: :show
   before_action :verify_closing_order_exists, only: :result
 
   def show
-    @order = find_order
+    @order = find_order.decorate
   end
 
   def result
@@ -18,9 +19,9 @@ class OrdersController < ApplicationController
     @form = OrderForm.new(order_params)
 
     if @form.valid?
-      order = @form.save!
+      @form.save!
 
-      redirect_to order_path(order)
+      redirect_to order_path
     else
       render :new
     end
@@ -44,6 +45,16 @@ class OrdersController < ApplicationController
     redirect_to getstarted_path
   end
 
+  def progressbar
+    order = find_order.decorate
+    render file: 'orders/components/_progressbar', locals: { order: order }, layout: false
+  end
+
+  def status_dialog
+    order = find_order.decorate
+    render file: 'orders/components/_status_dialog', locals: { order: order }, layout: false
+  end
+
   private
 
   def find_order
@@ -51,6 +62,10 @@ class OrdersController < ApplicationController
   end
 
   def verify_active_order_exists
+    redirect_to order_path if find_order.present?
+  end
+
+  def verify_active_order_not_exists
     redirect_to new_order_path unless find_order.present?
   end
 

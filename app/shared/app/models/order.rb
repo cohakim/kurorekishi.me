@@ -112,4 +112,12 @@ class Order < ApplicationRecord
       transitions from: %i(created collected cleaned), to: :expired
     end
   end
+
+  def collecting?
+    created?
+  end
+
+  def cleaning?
+    collected?
+  end
 end

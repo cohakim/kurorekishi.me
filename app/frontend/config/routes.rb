@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     get '/auth/:provider/callback', to: 'sessions#create'
     get '/signout', as: :signout, to: 'sessions#destroy'
 
-    resource :order, only: [:show, :new, :create, :abort, :confirm, :close] do
+    resource :order, only: [:show, :new, :create] do
+      get :progressbar, on: :member
+      get :status_dialog, on: :member
       get :result, on: :member
       patch :abort, on: :member
       patch :confirm, on: :member
