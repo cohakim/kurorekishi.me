@@ -2,24 +2,16 @@
   = render 'application/adsense/page_level_ads'
 
 - content_for :scripts do
-  :javascript
-    var progressbar = function() {
-      $.ajax({
-        type: "GET",
-        url: "#{progressbar_order_path}",
-        success: function(response) {
-          $('#progressbar').html(response);
-        }
-      });
-    };
-    setInterval(progressbar, 10000);
+  = render 'orders/scripts/progressbar'
+  = render 'orders/scripts/status_dialog'
 
 #content.blog.bg-dark
   #status
     %article.post.format-aside
       = flash_messages
       .wrapped-content
-        = render 'orders/components/progressbar', order: @order
+        #progressbar
+          = render 'orders/show/progressbar', order: @order
         .text-center(style='margin-top:15px;')
           = link_to 'show more status', {}, 'data-remodal-target': 'modal'
       %hr.no-margin
@@ -30,4 +22,5 @@
       = link_to('キャンセル', abort_order_path, method: :patch, class: 'button radius alert', disabled: @order.confirming?)
       = link_to('結果を見る', confirm_order_path, method: :patch, class: 'button radius', disabled: @order.processing?)
 
-= render 'orders/components/status_dialog', order: @order
+#status-modal.remodal(data-remodal-id='modal')
+  = render 'orders/show/status_dialog', order: @order, server_status: @server_status

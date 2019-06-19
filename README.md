@@ -16,4 +16,5 @@
 - RDSインスタンス作る
 - ALB/TargetGroup作る
 - make deploy の target-group-arn を書き換える
+- route53 でALBとドメイン紐付け
 - make setup-cluster

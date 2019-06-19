@@ -1,0 +1,66 @@
+%table
+  %thead
+    %tr
+      %th.caption{:colspan => "2"} Server
+  %tbody
+    %tr
+      %th 混雑度
+      %td
+        = server_status.busyness
+    %tr
+      %th 処理中
+      %td
+        = server_status.processing_count
+        users
+%table
+  %thead
+    %tr
+      %th.caption{:colspan => "2"} Job
+  %tbody
+    %tr
+      %th 処理対象
+      %td
+        = order.collect_count
+        件
+    %tr
+      %th 削除済
+      %td
+        = order.destroy_count
+        件
+%table
+  %thead
+    %tr
+      %th.caption{:colspan => "2"} Parameters
+  %tbody
+    %tr
+      %th Name
+      %td
+        = order.user.name
+    %tr
+      %th From
+      %td
+        = order.parameter.collect_from
+    %tr
+      %th To
+      %td
+        = order.parameter.collect_to
+    %tr
+      %th
+        Protect
+        %br
+        Reply
+      %td
+        = order.parameter.protect_reply
+    %tr
+      %th
+        Protect
+        %br
+        Favorite
+      %td
+        = order.parameter.protect_favorite
+    %tr
+      %th Created At
+      %td
+        = order.parameter.created_at
+%a.remodal-confirm{"data-remodal-action" => "confirm"} OK
+

@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = find_order.decorate
+    @server_status = ServerStatus.current_server_status
   end
 
   def result
@@ -46,13 +47,14 @@ class OrdersController < ApplicationController
   end
 
   def progressbar
-    order = find_order.decorate
-    render file: 'orders/components/_progressbar', locals: { order: order }, layout: false
+    @order = find_order.decorate
+    render 'progressbar', layout: false
   end
 
   def status_dialog
-    order = find_order.decorate
-    render file: 'orders/components/_status_dialog', locals: { order: order }, layout: false
+    @order = find_order.decorate
+    @server_status = ServerStatus.current_server_status
+    render 'status_dialog', layout: false
   end
 
   private
