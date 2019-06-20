@@ -5,28 +5,28 @@
         処理結果
       %dl
         %dt
-          登録日時
+          = t('.created_at')
         %dd
-          = order.created_at.to_s(:db)
+          = l(order.created_at, format: :long)
       %dl
         %dt
-          完了状態
+          = t('.state_completion')
         %dd
-          = order.transition_state
+          = order.state_completion_message
       %dl
         %dt
-          処理時間
+          = t('.processing_time')
         %dd
           = order.processing_time
       %dl
         %dt
-          処理対象
+          = t('.collect_count')
         %dd
           = order.collect_count
           件
       %dl
         %dt
-          削除件数
+          = t('.destroy_count')
         %dd
           = order.destroy_count
           件

@@ -1,0 +1,9 @@
+ja:
+  orders:
+    result:
+      score:
+        created_at: 登録日時
+        state_completion: 終了時の状態
+        processing_time: 処理時間
+        collect_count: 処理対象
+        destroy_count: 削除件数

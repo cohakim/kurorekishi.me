@@ -1,4 +1,7 @@
 class ServerStatus
+  include ActiveModel::Model
+  extend ActiveModel::Naming
+
   BUSYNESS_EMPTY  = :empty
   BUSYNESS_NORMAL = :normal
   BUSYNESS_JAM    = :jam

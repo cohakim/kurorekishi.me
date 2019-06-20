@@ -5,7 +5,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = find_order.decorate
-    @server_status = ServerStatus.current_server_status
+    @server_status = ServerStatusDecorator.decorate(
+      ServerStatus.current_server_status
+    )
   end
 
   def result
@@ -53,7 +55,9 @@ class OrdersController < ApplicationController
 
   def status_dialog
     @order = find_order.decorate
-    @server_status = ServerStatus.current_server_status
+    @server_status = ServerStatusDecorator.decorate(
+      ServerStatus.current_server_status
+    )
     render 'status_dialog', layout: false
   end
 

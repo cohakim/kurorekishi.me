@@ -2,6 +2,7 @@ class OrderDecorator < Draper::Decorator
   include ActionView::Helpers::DateHelper
 
   delegate_all
+  decorates_association :parameter
 
   def progression_bar_width
     return 0 if collect_count.zero?

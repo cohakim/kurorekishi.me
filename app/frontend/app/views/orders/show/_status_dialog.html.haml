@@ -6,7 +6,7 @@
     %tr
       %th 混雑度
       %td
-        = server_status.busyness
+        = server_status.busyness_i18n
     %tr
       %th 処理中
       %td
@@ -50,17 +50,17 @@
         %br
         Reply
       %td
-        = order.parameter.protect_reply
+        = order.parameter.protect_reply_i18n
     %tr
       %th
         Protect
         %br
         Favorite
       %td
-        = order.parameter.protect_favorite
+        = order.parameter.protect_favorite_i18n
     %tr
       %th Created At
       %td
-        = order.parameter.created_at
+        = l(order.parameter.created_at, format: :long)
 %a.remodal-confirm{"data-remodal-action" => "confirm"} OK
 

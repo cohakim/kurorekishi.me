@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      order: オーダー
+    attributes:
+      order:
+        progression_state: 進捗状態
+        created_at: 登録日時
+    enums:
+      order:
+        progression_state:
+          created:   処理の開始を待機中
+          collected: ツイート取得中
+          cleaned:   ツイート削除中
+          completed: 削除完了
+          aborted:   ユーザーによるキャンセル
+          failed:    エラーによる強制終了
+          expired:   有効期限切れ
