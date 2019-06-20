@@ -30,6 +30,9 @@ class Order < ApplicationRecord
 
   scope :user, ->(user) { where(user: user) }
   scope :active, -> { where(transition_state: %i(processing confirming closing)) }
+  scope :attachable, -> do
+    where(progression_state: %i(created collected cleaned))
+  end
 
   validates_uniqueness_of :user_id, conditions: -> { active }, message: 'already has an active order'
 

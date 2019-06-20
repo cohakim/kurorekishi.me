@@ -1,4 +1,0 @@
-concurrency: 1
-delay: 5
-queues:
-  - default.fifo

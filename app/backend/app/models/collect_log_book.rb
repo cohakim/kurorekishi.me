@@ -9,7 +9,7 @@ class CollectLogBook
   end
 
   def append(status)
-    tempfile.write NormalizedStatus.new(status).to_json
+    tempfile.puts NormalizedStatus.new(status).to_json
   end
 
   def save

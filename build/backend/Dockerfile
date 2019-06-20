@@ -36,14 +36,14 @@ RUN \
   && bundle config --global build.nokogiri --use-system-libraries \
   && bundle config --global jobs 4 \
   && bundle config --global path /usr/local/bundle
-
 RUN bundle install --without test development
+
+ARG RAILS_MASTER_KEY
+ARG SECRET_KEY_BASE
 
 RUN apk del build-dependencies
 
 COPY app/backend /app/backend
 COPY build/backend/entrypoint.sh /app/backend/
-
-ARG RAILS_MASTER_KEY
 
 RUN chmod a+x entrypoint.sh

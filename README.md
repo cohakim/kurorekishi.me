@@ -1,6 +1,9 @@
 ## NEXT
 
-- sidekiqで定期実行
+- syoryukenで定期実行
+- kpi通知用の管理ツールを統合
+- backend通知処理
+- backend例外処理
 
 ## 作業ログ
 

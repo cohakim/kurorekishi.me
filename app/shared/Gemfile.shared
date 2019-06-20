@@ -7,10 +7,16 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'configatron'
 gem 'rails-patterns'
 gem 'retryable'
+gem 'foreman'
 
 # database
 gem 'mysql2'
 gem 'ridgepole'
+
+# job queue
+gem 'sidekiq'
+gem 'sidekiq-unique-jobs', require: false
+gem 'sidekiq-scheduler', require: false
 
 # model
 gem 'aasm'
@@ -41,6 +47,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'rspec-rails'
   gem 'webmock'
+  gem 'fakeredis'
 end
 
 # production

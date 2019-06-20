@@ -5,8 +5,4 @@ ruby '2.6.3'
 
 # engine
 gem 'shared', path: '../shared'
-eval_gemfile "../shared/Gemfile.shared"
-
-# job queue
-gem 'shoryuken'
-gem 'aws-sdk-sqs'
+eval_gemfile '../shared/Gemfile.shared'

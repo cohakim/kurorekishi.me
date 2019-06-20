@@ -73,9 +73,6 @@ GEM
       aws-sdk-core (~> 3, >= 3.56.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.1)
-    aws-sdk-sqs (1.17.0)
-      aws-sdk-core (~> 3, >= 3.56.0)
-      aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
     axiom-types (0.1.1)
@@ -97,6 +94,7 @@ GEM
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.1.5)
     configatron (4.5.1)
+    connection_pool (2.2.2)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
@@ -134,6 +132,8 @@ GEM
       dry-logic (~> 1.0)
     equalizer (0.0.11)
     erubi (1.8.0)
+    et-orbi (1.2.1)
+      tzinfo
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.2)
@@ -141,9 +141,14 @@ GEM
       railties (>= 4.2.0)
     faker (1.9.3)
       i18n (>= 0.7)
+    fakeredis (0.7.0)
+      redis (>= 3.2, < 5.0)
     ffi (1.11.1)
     foreman (0.85.0)
       thor (~> 0.19.1)
+    fugit (1.2.1)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashdiff (0.4.0)
@@ -204,7 +209,10 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.1.0)
+    raabro (1.1.6)
     rack (2.0.7)
+    rack-protection (2.0.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -240,6 +248,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.2)
+    redis-namespace (1.6.0)
+      redis (>= 3.0.4)
     retryable (3.0.4)
     ridgepole (0.7.7)
       activerecord (>= 5.0.1, < 6)
@@ -274,11 +285,23 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
+    rufus-scheduler (3.6.0)
+      fugit (~> 1.1, >= 1.1.6)
     safe_yaml (1.0.5)
-    shoryuken (5.0.1)
-      aws-sdk-core (>= 2)
-      concurrent-ruby
-      thor
+    sidekiq (5.2.7)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
+    sidekiq-scheduler (3.0.0)
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      tilt (>= 1.4.0)
+    sidekiq-unique-jobs (6.0.13)
+      concurrent-ruby (~> 1.0, >= 1.0.5)
+      sidekiq (>= 4.0, < 7.0)
+      thor (~> 0)
     simple_oauth (0.3.1)
     spring (2.1.0)
     spring-commands-rspec (1.0.4)
@@ -295,6 +318,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.4)
     thread_safe (0.3.6)
+    tilt (2.0.9)
     twitter (6.2.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
@@ -335,7 +359,6 @@ DEPENDENCIES
   annotate
   awesome_print
   aws-sdk-s3
-  aws-sdk-sqs
   bootsnap (>= 1.1.0)
   bugsnag
   bullet
@@ -345,6 +368,7 @@ DEPENDENCIES
   dry-types
   factory_bot_rails
   faker
+  fakeredis
   foreman
   i18n_generators
   listen (>= 3.0.5, < 3.2)
@@ -355,12 +379,15 @@ DEPENDENCIES
   pry-rails
   rails (~> 5.2.3)
   rails-patterns
+  redis-namespace
   retryable
   ridgepole
   rspec-rails
   rubocop
   shared!
-  shoryuken
+  sidekiq
+  sidekiq-scheduler
+  sidekiq-unique-jobs
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)

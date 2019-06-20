@@ -56,7 +56,7 @@ services:
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
     entrypoint: ["./entrypoint.sh"]
-    command: ["bundle", "exec", "shoryuken", "-R", "-C", "config/shoryuken.yml"]
+    command: ["bundle", "exec", "foreman", "start"]
     tty: true
     stdin_open: true
     volumes:
