@@ -11,9 +11,7 @@ deploy:
 		--ecs-params $(ROOT_PATH)/deployment/$(NAME)/ecs-params.yml \
 		service up                                                  \
 		--launch-type EC2                                           \
-		--create-log-groups                                         \
-		--role ecsServiceRole                                       \
-		--container-name backend
+		--create-log-groups
 
 .PHONY: awslogs
 awslogs:

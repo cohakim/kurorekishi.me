@@ -7,16 +7,36 @@ class NotifyService < Patterns::Service
   end
 
   def call
-    return if order.start_message_notified?
+    return unless may_notify?
 
     twitter_client.post_status(message)
   rescue StandardError
     # do nothing
   ensure
-    order.notify_start_message!
+    notify!
   end
 
   private
+
+  def may_notify?
+    if context == :start_message
+      !order.start_message_notified?
+    elsif context == :finish_message
+      !order.finish_message_notified?
+    else
+      false
+    end
+  end
+
+  def notify!
+    if context == :start_message
+      order.notify_start_message!
+    elsif context == :finish_message
+      order.notify_finish_message!
+    else
+      false
+    end
+  end
 
   def message
     case context
