@@ -2,19 +2,21 @@
 #
 # Table name: orders
 #
-#  id                :bigint           not null, primary key
-#  user_id           :bigint           not null
-#  transition_state  :integer          not null
-#  progression_state :integer          not null
-#  collect_count     :integer          default(0), not null
-#  destroy_count     :integer          default(0), not null
-#  processed_at      :datetime
-#  confirmed_at      :datetime
-#  closed_at         :datetime
-#  collected_at      :datetime
-#  destroyed_at      :datetime
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id                      :bigint           not null, primary key
+#  user_id                 :bigint           not null
+#  transition_state        :integer          not null
+#  progression_state       :integer          not null
+#  collect_count           :integer          default(0), not null
+#  destroy_count           :integer          default(0), not null
+#  processed_at            :datetime
+#  confirmed_at            :datetime
+#  closed_at               :datetime
+#  collected_at            :datetime
+#  destroyed_at            :datetime
+#  start_message_notified  :boolean          default(FALSE), not null
+#  finish_message_notified :boolean          default(FALSE), not null
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
 #
 # Indexes
 #
@@ -122,5 +124,13 @@ class Order < ApplicationRecord
 
   def cleaning?
     collected?
+  end
+
+  def notify_start_message!
+    update!(start_message_notified: true)
+  end
+
+  def notify_finish_message!
+    update!(finish_message_notified: true)
   end
 end

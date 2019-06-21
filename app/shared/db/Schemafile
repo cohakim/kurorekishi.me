@@ -23,6 +23,9 @@ create_table 'orders', force: :cascade, options: 'ENGINE=InnoDB DEFAULT CHARSET=
   t.datetime :collected_at
   t.datetime :destroyed_at
 
+  t.boolean :start_message_notified,  default: false, null: false
+  t.boolean :finish_message_notified, default: false, null: false
+
   t.datetime :created_at, null: false
   t.datetime :updated_at, null: false
 end

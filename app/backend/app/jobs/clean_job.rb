@@ -3,8 +3,11 @@ class CleanJob < ApplicationJob
 
   def perform(order_id)
     order = Order.find(order_id)
+
     CollectService.call(order)
+    NotifyService.call(:start_message, order)
     DestroyService.call(order)
+    NotifyService.call(:finish_message, order)
   rescue => ex
     order.fail!
     raise ex
