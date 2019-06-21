@@ -7,7 +7,7 @@ services:
     volumes:
       - bundle:/bundle:cached
     entrypoint: ["./entrypoint.sh"]
-    command: ["bundle", "exec", "shoryuken", "-R", "-C", "config/shoryuken.yml"]
+    command: ["foreman", "start"]
     logging:
       driver: awslogs
       options:
