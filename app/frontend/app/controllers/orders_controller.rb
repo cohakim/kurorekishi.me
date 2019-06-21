@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
   def abort
     order = find_order
-    order.abort!
+    order.abort! if order.may_abort?
     redirect_to order_path
   end
 

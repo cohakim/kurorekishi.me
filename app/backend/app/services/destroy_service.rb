@@ -18,6 +18,7 @@ class DestroyService < Patterns::Service
       order.update!(destroy_count: row_count)
     else
       order.finish_clean!(destroy_count: row_count)
+      order.complete!
     end
   end
 
