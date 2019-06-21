@@ -12,7 +12,7 @@ services:
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
     entrypoint: ["./entrypoint.sh"]
-    command: ["rails", "server", "-b", "0.0.0.0"]
+    command: ["bundle", "exec", "foreman", "start"]
     ports:
       - '3000:3000'
     tty: true
@@ -34,7 +34,7 @@ services:
       RAILS_SERVE_STATIC_FILES: 'true'
       DATABASE_URL: mysql2://root:@db:3306
     entrypoint: ["./entrypoint.sh"]
-    command: ["rails", "server", "-b", "0.0.0.0"]
+    command: ["bundle", "exec", "foreman", "start"]
     ports:
       - '3000:3000'
     tty: true
@@ -43,6 +43,7 @@ services:
       - bundle:/bundle:cached
     depends_on:
       - db
+      - redis
   backend:
     build:
       context: ../
@@ -63,6 +64,7 @@ services:
       - bundle:/bundle:cached
     depends_on:
       - db
+      - redis
   db:
     image: mysql:5.7.22
     environment:
@@ -71,7 +73,15 @@ services:
       - '3306:3306'
     volumes:
       - dbdata:/var/lib/mysql:delegated
+  redis:
+    image: redis:5.0.4
+    ports:
+      - "6379:6379"
+    command: redis-server
+    volumes:
+       - redis-data:/data
 
 volumes:
   bundle:
   dbdata:
+  redis-data:

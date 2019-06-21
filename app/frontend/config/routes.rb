@@ -25,4 +25,6 @@ Rails.application.routes.draw do
       patch :close, on: :member
     end
   end
+
+  mount Sidekiq::Web => '/sidekiq'
 end

@@ -9,7 +9,7 @@ class CleanJob < ApplicationJob
     DestroyService.call(order)
     NotifyService.call(:finish_message, order)
   rescue => ex
-    order.fail!
+    order.fail! if order.may_fail?
     raise ex
   end
 end
