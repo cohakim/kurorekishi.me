@@ -1,0 +1,34 @@
+{
+  "config": {
+    "func_name": "kurorekishi_me-aws_billing",
+    "lambda_role": "lambda_basic_execution",
+    "region": "ap-northeast-1",
+    "slack_webhook_url": "${SLACK_WEBHOOK_URL}"
+  },
+  "name": "aws_billing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "transpile": "babel --presets es2015 src --out-dir bin",
+    "create": "yarn run transpile && claudia create --name $npm_package_config_func_name --handler bin/lambda.handler --role $npm_package_config_lambda_role --region $npm_package_config_region",
+    "deploy": "yarn run transpile && claudia update --set-env SLACK_WEBHOOK_URL=$npm_package_config_slack_webhook_url",
+    "test": "yarn run transpile && node bin/test.js",
+    "test-lambda": "claudia test-lambda"
+  },
+  "devDependencies": {
+    "babel-cli": "latest",
+    "babel-preset-env": "latest",
+    "claudia": "latest"
+  },
+  "dependencies": {
+    "aws-sdk": "latest",
+    "child_process": "latest",
+    "dotenv": "latest",
+    "moment": "latest",
+    "request": "latest"
+  }
+}

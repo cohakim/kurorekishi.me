@@ -1,0 +1,8 @@
+{
+  "lambda": {
+    "role": "lambda_basic_execution",
+    "name": "kurorekishi_me-aws_billing",
+    "region": "ap-northeast-1",
+    "sharedRole": true
+  }
+}
