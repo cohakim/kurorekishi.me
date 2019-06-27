@@ -36,7 +36,7 @@ class Order < ApplicationRecord
     where(progression_state: %i(created collected cleaned))
   end
 
-  validates_uniqueness_of :user_id, conditions: -> { active }, message: 'already has an active order'
+  validates_uniqueness_of :user_id, conditions: -> { active }, message: 'already has an active order', on: :create
 
   delegate :credentials, to: :user
   delegate :collect_params, to: :parameter
