@@ -1,6 +1,4 @@
 class CleanJob < ApplicationJob
-  include TwitterError
-
   queue_as 'default'
 
   def perform(order_id)
