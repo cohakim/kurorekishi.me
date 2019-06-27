@@ -27,7 +27,4 @@ Rails.application.configure do
   # loggoing
   config.log_level                                  = :info
   config.log_tags                                   = [ :request_id ]
-
-  # storage
-  config.active_storage.service = :local
 end

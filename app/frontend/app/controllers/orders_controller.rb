@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :verify_logged_in
   before_action :verify_active_order_exists, only: :new
   before_action :verify_active_order_not_exists, only: :show
   before_action :verify_closing_order_exists, only: :result
@@ -65,6 +66,10 @@ class OrdersController < ApplicationController
 
   def find_order
     Order.user(current_user).active.first
+  end
+
+  def verify_logged_in
+    redirect_to root_path if current_user.blank?
   end
 
   def verify_active_order_exists

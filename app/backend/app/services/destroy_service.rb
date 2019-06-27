@@ -9,10 +9,14 @@ class DestroyService < Patterns::Service
     return unless order.may_finish_clean?
 
     row_count = order.destroy_count
+    threads = []
     retrieve_timeline(offset: row_count, take: 100) do |status|
-      response = destroy_status(status)
-      row_count += 1
+      threads << Thread.new do
+        # response = destroy_status(status)
+        row_count += 1
+      end
     end
+    threads.each(&:join)
 
     if row_count < order.collect_count
       order.update!(destroy_count: row_count)

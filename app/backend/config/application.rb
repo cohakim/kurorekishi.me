@@ -36,5 +36,6 @@ module Backend
 
     # active_job
     config.active_job.queue_adapter = :sidekiq
+    config.active_storage.service = :amazon
   end
 end
