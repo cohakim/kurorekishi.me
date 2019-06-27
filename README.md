@@ -1,7 +1,9 @@
 ## NEXT
 
+- progressbarのエラー
 - キャンセル/結果表示のフロー改善
 - ServiceStatus
+- make restart 最新のコンテナインスタンスをとり直す / deployしなくても最新のイメージをとってる
 
 ## 作業ログ
 

@@ -19,4 +19,4 @@ deploy:
 
 .PHONY: awslogs
 awslogs:
-	awslogs get -G -S -w --timestamp -s 30m clean_them_all frontend
+	awslogs get -G -S -w --timestamp -s 30s clean_them_all frontend

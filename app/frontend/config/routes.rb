@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'roots#redirect_to_getstarted'
+  get '/cleaner', to: 'roots#redirect_to_getstarted'
 
   direct :blog do
     'http://blog.kurorekishi.me'

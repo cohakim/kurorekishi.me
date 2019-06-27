@@ -16,6 +16,6 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq.default_worker_options = {
-  retry: 0, backtrace: false, lock_timeout: 3.minutes,
+  retry: 0, backtrace: false,
   unique: :until_executed, unique_args: ->(args) { [ args.first.except('job_id') ] }
 }

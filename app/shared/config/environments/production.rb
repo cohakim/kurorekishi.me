@@ -25,6 +25,6 @@ Rails.application.configure do
   config.cache_store                                = :memory_store
 
   # loggoing
-  config.log_level                                  = :info
+  config.log_level                                  = :error
   config.log_tags                                   = [ :request_id ]
 end
