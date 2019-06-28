@@ -37,7 +37,7 @@ class DestroyService < Patterns::Service
 
   def destroy_status(status)
     response = nil
-    Retryable.retryable(tries: 5, sleep: 1) do
+    Retryable.retryable(tries: 3, sleep: 0.3) do
       response = twitter_client.destroy_status(status.id)
       fail Twitter::Error::ServerError if response.code.to_i.in? [500, 502, 503, 504]
     end
