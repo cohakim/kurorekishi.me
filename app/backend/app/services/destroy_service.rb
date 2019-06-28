@@ -12,7 +12,7 @@ class DestroyService < Patterns::Service
     threads = []
     retrieve_timeline(offset: row_count, take: 100) do |status|
       threads << Thread.new do
-        # response = destroy_status(status)
+        response = destroy_status(status)
         row_count += 1
       end
     end
