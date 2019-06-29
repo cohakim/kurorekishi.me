@@ -21,9 +21,9 @@ Rails.application.routes.draw do
       get :progressbar, on: :member
       get :status_dialog, on: :member
       get :result, on: :member
-      patch :abort, on: :member
-      patch :confirm, on: :member
-      patch :close, on: :member
+      post :abort, on: :member
+      post :confirm, on: :member
+      post :close, on: :member
     end
   end
 

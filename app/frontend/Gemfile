@@ -20,13 +20,6 @@ gem 'draper'
 
 # view
 gem 'haml-rails'
-gem 'browser'
-gem 'rails-timeago'
-
-# js
-gem 'webpacker'
-gem 'webpacker-react'
-gem 'js-routes'
 
 # css preprocessor
 gem 'sass'

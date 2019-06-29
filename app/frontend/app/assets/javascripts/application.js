@@ -12,7 +12,6 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require js-routes
 //= require modernizr
 //= require pickadate/picker
 //= require pickadate/picker.date

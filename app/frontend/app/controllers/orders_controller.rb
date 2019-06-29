@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :welcome_crawler, only: :show
   before_action :verify_logged_in
   before_action :verify_active_order_exists, only: :new
   before_action :verify_active_order_not_exists, only: :show
@@ -63,6 +64,11 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def welcome_crawler
+    return if current_user.present?
+    render 'roots/show'
+  end
 
   def find_order
     Order.user(current_user).active.first

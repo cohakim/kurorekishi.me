@@ -1,8 +1,12 @@
 ## NEXT
 
-- progressbarのエラー
-- キャンセル/結果表示のフロー改善
-- ServiceStatus
+- ステータス周りを簡易表示
+  - progressbarのエラー
+- deploy メモリ周りを現在の仕様に
+- デザインテンプレート載せ替え
+  - スマホでJS動いてない
+- cloudflare
+- react native / expo
 - make restart 最新のコンテナインスタンスをとり直す / deployしなくても最新のイメージをとってる
 
 ## 作業ログ

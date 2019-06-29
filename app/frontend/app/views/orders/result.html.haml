@@ -4,5 +4,5 @@
     = render 'orders/result/support', order: @order
 
   .primary-button.text-center(style='margin:8px')
-    = link_to close_order_path, method: :patch, class: 'button radius' do
+    = button_to close_order_path, class: 'button radius' do
       DONE
