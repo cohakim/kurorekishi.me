@@ -1,0 +1,24 @@
+- content_for :scripts do
+  :javascript
+    $(document).ready(function() {
+      $('#submit').click(function(e) {
+        var collect_method = $('#job_parameter_collect_method').val();
+        var archive_url    = $('#job_parameter_archive_url').val();
+        if (collect_method == 'archive' && archive_url == '') {
+          e.preventDefault();
+          alert('全ツイート履歴のアップロードが必要です');
+          return false;
+        }
+      });
+    });
+
+#content.blog.bg-dark
+  #new
+    = form_with url: order_path, method: :post, local: true do |f|
+      = render 'orders/new/account'
+      = render 'orders/new/method',  form: f
+      = render 'orders/new/options', form: f
+      = render 'orders/new/notices', form: f
+
+      .primary-button.text-center(style='margin:8px')
+        = f.submit '削除を開始する', class: 'button radius alert', id: 'submit'

@@ -1,0 +1,31 @@
+- content_for :scripts do
+  = render 'orders/scripts/pickadate'
+
+#options
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        削除オプション
+      %dl
+        %dt
+          リプライを保護
+        %dd.switch
+          = form.check_box :protect_reply, checked: @form.protect_reply, class: 'flat'
+          = form.label :protect_reply, '&nbsp;'.html_safe
+      %dl.timeline
+        %dt
+          ふぁぼられを保護
+        %dd.switch
+          = form.check_box :protect_favorite, checked: @form.protect_favorite, class: 'flat'
+          = form.label :protect_favorite, '&nbsp;'.html_safe
+      %dl#datepickers
+        %dt
+          日付を指定
+        %dd
+          %span.prefix
+            %i.icon-calendar
+          = form.text_field :collect_from, class: 'span2 collect_from', placeholder: 'from', readonly: true
+        %dd
+          %span.prefix
+            %i.icon-calendar
+          = form.text_field :collect_to, class: 'span2 collect_to', placeholder: 'to', readonly: true

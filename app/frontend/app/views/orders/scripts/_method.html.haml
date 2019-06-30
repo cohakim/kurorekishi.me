@@ -1,0 +1,21 @@
+:javascript
+  $(document).ready(function() {
+    $('#timeline').click(function () {
+      $('.twitter-archive').fadeOut(100, function() {
+        $('.timeline').fadeIn(100);
+      });
+    });
+    $('#twitter-archive').click(function () {
+      $('.timeline').fadeOut(100, function() {
+        $('.twitter-archive').fadeIn(100);
+      });
+    });
+  });
+
+:javascript
+  $(document).ready(function() {
+    $('.sub-nav > dd').click(function () {
+      $(this).parent().children('dd').removeClass('active');
+      $(this).addClass('active');
+    });
+  });

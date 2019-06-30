@@ -1,0 +1,107 @@
+@import "compass-mixins/lib/compass";
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Mark Text
+*
+**/
+
+.mark-text{
+  color: $c_primaryColor;
+
+  &.green{
+    color: $c_primaryGreen;
+  }
+
+  &.bluegreen{
+    color: $c_primaryBlueGreen;
+  }
+
+  &.lightblue{
+    color: $c_primaryLightBlue;
+  }
+
+  &.lightpurple{
+    color: $c_primaryLightPurple;
+  }
+
+  &.blue{
+    color: $c_primaryBlue;
+  }
+
+  &.yellow{
+    color: $c_primaryYellow;
+  }
+
+  &.orange{
+    color: $c_primaryOrange;
+  }
+
+  &.grey{
+    color: $c_primaryGrey;
+  }
+
+  &.red{
+    color: $c_primaryRed;
+  }
+
+  &.success{
+    color: $c_success;
+  }
+
+  &.disabled{
+    color: lighten($c_primaryRed, 5%);
+  }
+}
+
+mark{
+  padding: 2px 3px;
+  background: lighten($c_primaryColor, 20%);
+  color: $c_BodyText;
+
+  &.green{
+    background: lighten($c_primaryGreen, 20%);
+  }
+
+  &.bluegreen{
+    background: lighten($c_primaryBlueGreen, 20%);
+  }
+
+  &.lightblue{
+    background: lighten($c_primaryLightBlue, 20%);
+  }
+
+  &.lightpurple{
+    background: lighten($c_primaryLightPurple, 30%);
+  }
+
+  &.blue{
+    background: lighten($c_primaryBlue, 25%);
+  }
+
+  &.yellow{
+    background: lighten($c_primaryYellow, 15%);
+  }
+
+  &.orange{
+    background: lighten($c_primaryOrange, 20%);
+  }
+
+  &.grey{
+    background: $c_primaryGrey;
+  }
+
+  &.red{
+    background: lighten($c_primaryRed, 10%);
+  }
+
+  &.success{
+    background: $c_success;
+  }
+
+  &.disabled{
+    background: lighten($c_primaryRed, 5%);
+  }
+}

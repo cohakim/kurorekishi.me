@@ -1,0 +1,72 @@
+@import "compass-mixins/lib/compass";
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Styles
+*
+**/
+
+#header{
+	@include noSelect();
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: $h_header;
+	background: $c_headerBg;
+	color: #fff;
+	font: 700px;
+
+	a{
+		@include noSelect();
+		margin: 0;
+		padding: 12px 25px;
+		height: $h_header;
+		color: #fff;
+		font-size: 14px;
+		line-height: $h_header + 1;
+
+		&.hover{
+			color: $c_primaryDark;
+		}
+	}
+
+	h1{
+		margin: 0;
+		text-align: center;
+		font-weight: bold;
+		font-size: 14px;
+		font-family: $ff_body;
+	}
+
+	.icon-clock-1{
+		margin: 0 -1px;
+	}
+}
+
+.header-button{
+	position: absolute;
+	top: 0;
+	width: 55px;
+	height: $h_header;
+	color: #fff;
+	text-align: center;
+	font-size: 24px;
+	line-height: $h_header;
+	cursor: pointer;
+
+	&.left{
+		left: 0;
+	}
+
+	&.right{
+		right: 0;
+	}
+
+	&.hover{
+		color: $c_primaryDark;
+	}
+}

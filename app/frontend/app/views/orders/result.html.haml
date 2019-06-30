@@ -1,0 +1,8 @@
+#content.blog.bg-dark
+  #result
+    = render 'orders/result/score', order: @order
+    = render 'orders/result/support', order: @order
+
+  .primary-button.text-center(style='margin:8px')
+    = button_to close_order_path, class: 'button radius' do
+      DONE

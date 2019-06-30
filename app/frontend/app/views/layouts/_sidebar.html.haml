@@ -1,0 +1,23 @@
+%aside#sidemenu-container
+  #sidemenu
+    #author-profile
+      .author-profile-photo
+        = image_tag('profile.png')
+      .author-profile-content
+        %p.title
+          黒歴史クリーナー
+        %p.subtitle
+          @CleanThemAll
+    %nav#nav-container
+      %ul.nav
+        %li
+          = link_to 'Home', root_path
+        %li
+        - if logged_in?
+          = link_to 'ログアウト', signout_path
+        - else
+          = link_to 'ログイン', signin_path
+        %li
+          = render partial: 'layouts/sidebar/welcome.html.haml'
+        %li
+          = render partial: 'layouts/sidebar/services.html.haml'

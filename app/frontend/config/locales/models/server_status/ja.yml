@@ -1,0 +1,15 @@
+ja:
+  activemodel:
+    models:
+      server_status: サーバーの状態
+    attributes:
+      server_status:
+        busyness: 混雑状況
+        processing_count: 処理件数
+    enums:
+      server_status:
+        busyness:
+          empty: 快適
+          normal: 普通
+          jam: 混雑
+          halt: メンテ中

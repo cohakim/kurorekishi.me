@@ -1,0 +1,12 @@
+#content-fullwidth.blog.blog-single
+  #getstarted
+    %article.post.format-standard.text-center
+      = flash_messages
+      = render 'roots/show/primary'
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        = render partial: 'application/adsense/rectangle'
+      = render 'roots/show/social'
+      = render 'roots/show/features'
+      = render 'roots/show/customers'
+      .wrapped-content(style='padding-top:7px;padding-bottom:0px;')
+        = render partial: 'application/adsense/rectangle'

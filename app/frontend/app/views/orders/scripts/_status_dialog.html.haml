@@ -1,0 +1,10 @@
+:javascript
+  $(document).on('opened', '.remodal', function () {
+    $.ajax({
+      type: "GET",
+      url: "#{status_dialog_order_path}",
+      success: function(response) {
+        $('#status-modal').html(response);
+      }
+    });
+  });

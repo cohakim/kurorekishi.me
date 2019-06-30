@@ -1,0 +1,10 @@
+version: 1
+task_definition:
+  ecs_network_mode: bridge
+  task_execution_role: ecsTaskExecutionRole
+  services:
+    frontend:
+      essential: true
+      cpu_shares: 500
+      mem_limit: 500m
+      mem_reservation: 500m

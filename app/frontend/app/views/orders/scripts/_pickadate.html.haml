@@ -1,0 +1,12 @@
+:javascript
+  $(document).ready(function() {
+    var params = {
+      dateMin: [ 2006, 1, 1 ],
+      dateMax: true,
+      format: 'yyyy/mm/dd',
+      formatSubmit: 'yyyy-mm-dd',
+      hiddenSuffix: '',
+    };
+    $('.collect_from').pickadate(params);
+    $('.collect_to').pickadate(params);
+  });

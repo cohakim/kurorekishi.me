@@ -1,0 +1,11 @@
+.wrapped-content.bg-dark
+  %p(style='margin-bottom:0px;')
+    <strong>ツイート一括削除ツールの決定版( ^ω^ )</strong><br>
+    あなたのお友達も使ってます！
+  .primary-button
+    - if logged_in?
+      = link_to order_path, class: 'button radius' do
+        ツイッターでログイン
+    - else
+      = link_to signin_path, method: :post, class: 'button radius' do
+        ツイッターでログイン

@@ -1,0 +1,17 @@
+!!! 5
+%html(lang='en')
+  %head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#")
+    = render 'layouts/meta'
+    %title 黒歴史クリーナー
+    = stylesheet_link_tag 'application', media: 'all'
+    = csrf_meta_tags
+    = javascript_include_tag 'application'
+    = render 'application/analytics'
+    = yield :page_scripts
+  %body
+    #container
+      = render partial: 'layouts/sidebar'
+      %section#content-container.dark.clearfix
+        = render partial: 'layouts/header'
+        = yield
+    = yield :scripts

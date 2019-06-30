@@ -1,0 +1,32 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require normalize.css/normalize
+ *= require compass-mixins/lib/_compass
+ *= require bourbon/core/_bourbon
+ *= require modules/header
+ *= require modules/helpers
+ *= require modules/layout
+ *= require modules/marktext
+ *= require modules/panel
+ *= require modules/progress
+ *= require modules/sidebar
+ *= require modules/switch
+ *= require modules/typography
+ *= require fontello
+ *= require pickadate/default
+ *= require pickadate/default.date
+ *= require pickadate
+ *= require remodal-default-theme
+ *= require remodal
+ *= require style
+ *= require_self
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto)

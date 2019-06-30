@@ -1,0 +1,11 @@
+:javascript
+  var progressbar = function() {
+    $.ajax({
+      type: "GET",
+      url: "#{progressbar_order_path}",
+      success: function(response) {
+        $('#progressbar').html(response);
+      }
+    });
+  };
+  setInterval(progressbar, 20000);

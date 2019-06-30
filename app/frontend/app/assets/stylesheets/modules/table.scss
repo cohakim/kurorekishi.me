@@ -1,0 +1,281 @@
+@import "compass-mixins/lib/compass";
+@import 'assets/mixins';
+@import 'assets/variables';
+
+/**
+*
+* Progress
+*
+**/
+
+/* Tables */
+
+.pinned, div.table-wrapper {
+	border-color: #f7f7f7 !important;
+}
+
+.pinned{
+	box-shadow: 0 0 3px #ccc;
+	border-right: none !important;
+}
+
+.table-wrapper, table{
+	margin: 1em 0;
+}
+
+.table-wrapper table{
+	margin: 0;
+}
+
+table{
+	border: 1px solid lighten($c_BodyText, 55%);
+	margin-bottom: 1.25em;
+}
+
+table tr th, table tr td {
+	color: $c_BodyText;
+}
+
+table tr th{
+	font-weight: 600;
+	font-size: 0.875em;
+}
+
+table thead, table tfoot {
+	background: lighten($c_BodyText, 55%);
+	font-weight: 600;
+}
+
+table thead tr th, table thead tr td, table tfoot tr th, table tfoot tr td {
+	padding: 15px;
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+	background: lighten($c_BodyText, 56%);
+}
+
+table{
+	&.text-center thead tr th, &.text-center thead tr td, &.text-center tfoot tr th, &.text-center tfoot tr td {
+		text-align: center;
+	}
+
+	&.text-left thead tr th, &.text-left thead tr td, &.text-left tfoot tr th, &.text-left tfoot tr td {
+		text-align: left;
+	}
+
+	&.text-right thead tr th, &.text-right thead tr td, &.text-right tfoot tr th, &.text-right tfoot tr td {
+		text-align: right;
+	}
+}
+
+table tr th, table tr td {
+	padding: 10px 15px;
+}
+
+table{
+	&.blue{
+		border-color: lighten($c_primaryBlue, 38%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryBlue, 48%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryBlue, 38%);
+		}
+	}
+
+	&.green{
+		border-color: lighten($c_primaryGreen, 32%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryGreen, 38%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryGreen, 32%);
+		}
+	}
+
+	&.bluegreen{
+		border-color: lighten($c_primaryBlueGreen, 35%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryBlueGreen, 45%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryBlueGreen, 35%);
+		}
+	}
+
+	&.lightblue{
+		border-color: lighten($c_primaryLightBlue, 36%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryLightBlue, 42%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryLightBlue, 36%);
+		}
+	}
+
+	&.lightpurple{
+		border-color: lighten($c_primaryLightPurple, 32%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryLightPurple, 38%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryLightPurple, 32%);
+		}
+	}
+
+	&.yellow{
+		border-color: lighten($c_primaryYellow, 20%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryYellow, 25%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryYellow, 20%);
+		}
+	}
+
+	&.orange{
+		border-color: lighten($c_primaryOrange, 25%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryOrange, 30%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryOrange, 25%);
+		}
+	}
+
+	&.red{
+		border-color: lighten($c_primaryRed, 25%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_primaryRed, 30%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_primaryRed, 25%);
+		}
+	}
+
+	&.success{
+		border-color: lighten($c_success, 15%);
+
+		tr.even, tr.alt, tr:nth-of-type(even) {
+			background: lighten($c_success, 25%);
+		}
+
+		thead, tfoot {
+			background: lighten($c_success, 15%);
+		}
+	}
+}
+
+.highlight{
+	background: lighten($c_primaryColor, 20%);
+
+	&.green{
+		background: lighten($c_primaryGreen, 20%);
+	}
+
+	&.bluegreen{
+		background: lighten($c_primaryBlueGreen, 20%);
+	}
+
+	&.lightblue{
+		background: lighten($c_primaryLightBlue, 20%);
+	}
+
+	&.lightpurple{
+		background: lighten($c_primaryLightPurple, 30%);
+	}
+
+	&.blue{
+		background: lighten($c_primaryBlue, 25%);
+	}
+
+	&.yellow{
+		background: lighten($c_primaryYellow, 15%);
+	}
+
+	&.orange{
+		background: lighten($c_primaryOrange, 20%);
+	}
+
+	&.grey{
+		background: $c_primaryGrey;
+	}
+
+	&.red{
+		background: lighten($c_primaryRed, 10%);
+	}
+
+	&.success{
+		background: $c_success;
+	}
+
+	&.alert{
+		background: lighten($c_primaryRed, 5%);
+	}
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(even), thead, tfoot{
+	.highlight{
+		background: lighten($c_primaryColor, 16%);
+
+		&.green{
+			background: lighten($c_primaryGreen, 16%);
+		}
+
+		&.bluegreen{
+			background: lighten($c_primaryBlueGreen, 16%);
+		}
+
+		&.lightblue{
+			background: lighten($c_primaryLightBlue, 16%);
+		}
+
+		&.lightpurple{
+			background: lighten($c_primaryLightPurple, 25%);
+		}
+
+		&.blue{
+			background: lighten($c_primaryBlue, 20%);
+		}
+
+		&.yellow{
+			background: lighten($c_primaryYellow, 10%);
+		}
+
+		&.orange{
+			background: lighten($c_primaryOrange, 15%);
+		}
+
+		&.grey{
+			background: darken($c_primaryGrey, 5%);
+		}
+
+		&.red{
+			background: lighten($c_primaryRed, 5%);
+		}
+
+		&.success{
+			background: darken($c_success, 5%);
+		}
+
+		&.disabled{
+			background: lighten($c_primaryRed, 2%);
+		}
+	}
+}

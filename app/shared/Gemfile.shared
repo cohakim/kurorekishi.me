@@ -1,0 +1,71 @@
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+# base
+gem 'rails', '~> 5.2.3'
+gem 'bootsnap', '>= 1.1.0', require: false
+gem 'configatron'
+gem 'rails-patterns'
+gem 'retryable'
+gem 'foreman'
+
+# database
+gem 'mysql2'
+gem 'ridgepole'
+
+# job queue
+gem 'sidekiq'
+gem 'sidekiq-unique-jobs', require: false
+gem 'sidekiq-scheduler', require: false
+
+# model
+gem 'aasm'
+gem 'active_hash'
+
+# value object
+gem 'dry-types'
+gem 'dry-struct'
+
+# sdk
+gem 'aws-sdk-s3'
+gem 'twitter'
+gem 'oauth'
+
+# dev utils
+group :development do
+  gem 'rubocop', require: false
+  gem 'annotate'
+
+  gem 'bullet'
+  gem 'awesome_print', require: false
+  gem 'i18n_generators'
+end
+
+# testing
+group :test do
+  gem 'nyan-cat-formatter'
+  gem 'rspec-rails'
+  gem 'webmock'
+  gem 'fakeredis'
+end
+
+# production
+group :production do
+  gem 'bugsnag'
+end
+
+# development/test
+group :development, :test do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+
+  gem 'listen', '>= 3.0.5', '< 3.2'
+
+  gem 'factory_bot_rails'
+  gem 'faker'
+end

@@ -1,0 +1,12 @@
+{
+  "name": "frontend",
+  "private": true,
+  "dependencies": {
+    "bourbon": "^5.1.0",
+    "compass-mixins": "^0.12.10",
+    "google-fonts-webpack-plugin": "^0.4.4",
+    "normalize.css": "^8.0.1",
+    "webpack": "^4.35.0"
+  },
+  "devDependencies": {}
+}

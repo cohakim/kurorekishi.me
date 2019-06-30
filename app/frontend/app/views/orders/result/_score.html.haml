@@ -1,0 +1,32 @@
+#score
+  %article.post.format-aside
+    .wrapped-content
+      %h2.blog-title
+        処理結果
+      %dl
+        %dt
+          = t('.created_at')
+        %dd
+          = l(order.created_at, format: :long)
+      %dl
+        %dt
+          = t('.state_completion')
+        %dd
+          = order.state_completion_message
+      %dl
+        %dt
+          = t('.processing_time')
+        %dd
+          = order.processing_time
+      %dl
+        %dt
+          = t('.collect_count')
+        %dd
+          = order.collect_count
+          件
+      %dl
+        %dt
+          = t('.destroy_count')
+        %dd
+          = order.destroy_count
+          件

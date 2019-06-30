@@ -1,0 +1,10 @@
+.wrapped-content
+  %h2.primary-title
+    呪われしツイートを<br>一括削除！
+  .primary-button
+    - if logged_in?
+      = link_to order_path, class: 'button radius' do
+        ツイッターでログイン
+    - else
+      = link_to signin_path, method: :post, class: 'button radius' do
+        ツイッターでログイン
