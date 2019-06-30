@@ -16,6 +16,4 @@ setup-cluster:
 	--vpc vpc-0ffee845844d25585 \
 	--subnets subnet-04b4ab206d6625e78,subnet-07588361410320e9c \
 	--security-group sg-031154da5470d733d,sg-04744e60ee6bfb139,sg-01a86733823a315a2 \
-	--instance-role ecsInstanceRole \
-	--keypair default \
-	--force
+	--instance-role ecsInstanceRole

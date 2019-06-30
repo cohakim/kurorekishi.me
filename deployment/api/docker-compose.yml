@@ -6,6 +6,10 @@ services:
     entrypoint: ["./entrypoint.sh"]
     volumes:
       - bundle:/bundle:cached
+    entrypoint: ["./entrypoint.sh"]
+    command: ["rails", "server", "-b", "0.0.0.0"]
+    ports:
+      - '3000'
     logging:
       driver: awslogs
       options:

@@ -1,9 +1,13 @@
 class OrdersController < ApplicationController
   before_action :welcome_crawler, only: :show
-  before_action :verify_logged_in
-  before_action :verify_active_order_exists, only: :new
-  before_action :verify_active_order_not_exists, only: :show
-  before_action :verify_closing_order_exists, only: :result
+  before_action :require_logged_in
+  before_action :require_active_order_is_non_existent, only: :new
+  before_action :require_active_order_is_existent, only: [:show, :progressbar, :status_dialog]
+  before_action :require_closing_order_is_existent, only: :result
+
+  def new
+    @form = OrderForm.new(order_params)
+  end
 
   def show
     @order = find_order.decorate
@@ -14,10 +18,6 @@ class OrdersController < ApplicationController
 
   def result
     @order = find_order.decorate
-  end
-
-  def new
-    @form = OrderForm.new(order_params)
   end
 
   def create
@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
 
   def close
     order = find_order
-    order.close!
+    order.close! if order.may_close?
     redirect_to getstarted_path
   end
 
@@ -65,29 +65,8 @@ class OrdersController < ApplicationController
 
   private
 
-  def welcome_crawler
-    return if current_user.present?
-    render 'roots/show'
-  end
-
   def find_order
     Order.user(current_user).active.first
-  end
-
-  def verify_logged_in
-    redirect_to root_path if current_user.blank?
-  end
-
-  def verify_active_order_exists
-    redirect_to order_path if find_order.present?
-  end
-
-  def verify_active_order_not_exists
-    redirect_to new_order_path unless find_order.present?
-  end
-
-  def verify_closing_order_exists
-    redirect_to order_path unless find_order.closing?
   end
 
   def order_params
@@ -96,5 +75,30 @@ class OrdersController < ApplicationController
       :start_message, :finish_message,
       :protect_reply, :protect_favorite, :collect_from, :collect_to,
     ).merge(user_id: current_user.id)
+  end
+
+  def welcome_crawler
+    return if current_user.present?
+    render 'roots/show'
+  end
+
+  def require_logged_in
+    return if logged_in?
+    redirect_to root_path
+  end
+
+  def require_active_order_is_non_existent
+    return if find_order.blank?
+    redirect_to order_path
+  end
+
+  def require_active_order_is_existent
+    return if find_order.present?
+    redirect_to new_order_path
+  end
+
+  def require_closing_order_is_existent
+    return if find_order.closing?
+    redirect_to order_path
   end
 end

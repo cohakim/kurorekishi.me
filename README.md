@@ -1,13 +1,14 @@
 ## NEXT
 
-- ステータス周りを簡易表示
-  - progressbarのエラー
-- deploy メモリ周りを現在の仕様に
-- デザインテンプレート載せ替え
-  - スマホでJS動いてない
-- cloudflare
 - react native / expo
-- make restart 最新のコンテナインスタンスをとり直す / deployしなくても最新のイメージをとってる
+- ロックkey のパージができる
+- S3ライフサイクルの初期化
+- KPI通知
+- ロックが解除されない
+  - https://github.com/mhenrixon/sidekiq-unique-jobs/issues/397
+- ecs-cli 深堀
+  - make restart 最新のコンテナインスタンスをとり直す / deployしなくても最新のイメージをとってる
+- staging 環境作る
 
 ## 作業ログ
 
