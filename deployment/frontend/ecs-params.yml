@@ -5,6 +5,6 @@ task_definition:
   services:
     frontend:
       essential: true
-      cpu_shares: 500
-      mem_limit: 500m
-      mem_reservation: 500m
+      cpu_shares: 256
+      mem_limit: 1024m
+      mem_reservation: 1024m

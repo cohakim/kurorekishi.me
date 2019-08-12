@@ -34,11 +34,11 @@ class CollectPolicy
 
   # リプライツイートでないことを検証する
   def validate_tweet_is_not_reply
-    tweet.in_reply_to_user_id.present? || errors.add(:base, 'tweet_is_reply')
+    tweet.reply? && errors.add(:base, 'tweet_is_reply')
   end
 
   # お気にいりされていないことを検証する
   def validate_tweet_is_not_favorited
-    tweet.favorite_count == 0 || errors.add(:base, 'tweet_is_favorited')
+      tweet.favorited? && errors.add(:base, 'tweet_is_favorited')
   end
 end
