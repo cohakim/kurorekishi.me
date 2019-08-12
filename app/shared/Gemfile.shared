@@ -46,6 +46,7 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'rspec-rails'
   gem 'webmock'
+  gem 'vcr'
   gem 'fakeredis'
 end
 

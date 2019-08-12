@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=200&include_rts=true&trim_user=true
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - TwitterRubyGem/6.2.0
+      Authorization:
+      - OAuth oauth_consumer_key="EfyBrxvjIq4HptaLhkPPg", oauth_nonce="ef5ef9a68bda6bf872cb81c811a4e0c4",
+        oauth_signature="h0HA6i1T%2FpWjCXpxpvh0IvT79sY%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1561901372", oauth_token="1-An4w5v70Y817FhCr", oauth_version="1.0"
+      Connection:
+      - close
+      Host:
+      - api.twitter.com
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '62'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 30 Jun 2019 13:29:32 GMT
+      Server:
+      - tsa_m
+      Set-Cookie:
+      - guest_id=v1%3A156190137233302536; Max-Age=63072000; Expires=Tue, 29 Jun 2021
+        13:29:32 GMT; Path=/; Domain=.twitter.com
+      - personalization_id="v1_2DusjjU9O8+FjdR5BSfBMA=="; Max-Age=63072000; Expires=Tue,
+        29 Jun 2021 13:29:32 GMT; Path=/; Domain=.twitter.com
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - a41a8285f6ddd81ad32d3c08880cffc0
+      X-Response-Time:
+      - '104'
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":89,"message":"Invalid or expired token."}]}'
+    http_version: 
+  recorded_at: Sun, 30 Jun 2019 13:29:32 GMT
+recorded_with: VCR 5.0.0

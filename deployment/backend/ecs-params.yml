@@ -2,12 +2,14 @@ version: 1
 task_definition:
   ecs_network_mode: bridge
   task_execution_role: ecsTaskExecutionRole
+  task_size:
+    cpu_limit: 384
   services:
     backend:
       essential: true
-      cpu_shares: 2048
-      mem_limit: 1500m
-      mem_reservation: 1500m
+      cpu_shares: 384
+      mem_limit: 3072m
+      mem_reservation: 3072m
       healthcheck:
         test: "ps ax | grep -v grep | grep sidekiq > /dev/null"
         interval: 5s

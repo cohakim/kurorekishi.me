@@ -1,3 +1,3 @@
 polling:
   class: AttachJob
-  every: ['5s']
+  every: ['12s']

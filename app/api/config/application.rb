@@ -10,6 +10,7 @@ module API
     config.api_only = true
 
     # paths
+    config.paths.add 'config/database', with: Shared::Engine.root.join('config', 'database.yml')
     config.active_storage.service_configurations = begin
       config_file = Pathname.new(Shared::Engine.root.join("config/storage.yml"))
       YAML.load(ERB.new(config_file.read).result) || {}
