@@ -1,9 +1,7 @@
 class AttachJob < ApplicationJob
-  queue_as 'default'
-
   def perform
     Order.attachable.each do |order|
-      CleanJob.perform_later(order.id)
+      CleanJob.perform_async(order.id)
     end
   end
 end
