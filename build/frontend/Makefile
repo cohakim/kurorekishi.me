@@ -6,7 +6,7 @@ REPOSITORY := 081239106582.dkr.ecr.ap-northeast-1.amazonaws.com
 
 .PHONY: build
 build:
-	docker build -f $(ROOT_PATH)/build/$(NAME)/Dockerfile -t $(PROJECT)/$(NAME):$(VERSION) $(ROOT_PATH) --squash
+	docker build -f $(ROOT_PATH)/build/$(NAME)/Dockerfile -t $(PROJECT)/$(NAME):$(VERSION) $(ROOT_PATH)
 
 .PHONY: prepare
 prepare:
