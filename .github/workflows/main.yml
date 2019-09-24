@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - deploy/production
+name: Build and Push Image to ECR
+jobs:
+  build:
+    name: Build Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@deplou/production
+      - name: Run make build
+        run: |
+          cd app/backend
+          make build
