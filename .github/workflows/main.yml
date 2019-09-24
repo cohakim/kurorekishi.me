@@ -13,5 +13,6 @@ jobs:
           fetch-depth: 1
       - name: Run make build
         run: |
+          export ROOT_PATH=$(pwd)
           cd app/backend
           make build
