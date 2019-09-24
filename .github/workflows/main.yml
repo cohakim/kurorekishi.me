@@ -4,15 +4,39 @@ on:
       - deploy/production
 name: Build and Push Image to ECR
 jobs:
-  build:
-    name: Build Image
+  build_backend:
+    name: Build and Push Docker Image for backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
         with:
           fetch-depth: 1
-      - name: Run make build
+      - name: make build
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_REGION: ap-northeast-1
         run: |
           export ROOT_PATH=$(pwd)
           cd app/backend
           make build
+          make push
+  build_frontend:
+    name: Build and Push Docker Image for frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: make build
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_REGION: ap-northeast-1
+        run: |
+          export ROOT_PATH=$(pwd)
+          cd app/frontend
+          make build
+          make push
