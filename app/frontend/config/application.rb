@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Frontend
   class Application < Rails::Application
-    config.load_defaults 5.2
+    config.load_defaults 6.0
 
     # paths
     config.paths.add 'config/database', with: Shared::Engine.root.join('config', 'database.yml')

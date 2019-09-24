@@ -1,6 +1,4 @@
 class CollectLogBook
-  include ActiveStorage::Downloading
-
   attr_reader :order, :tempfile
 
   def initialize(order)
@@ -23,7 +21,7 @@ class CollectLogBook
   end
 
   def each_line(offset: 0, take: 100)
-    download_blob_to_tempfile do |file|
+    blob.open do |file|
       file.each_line do |line|
         if offset < file.lineno && file.lineno <= (offset + take)
           yield NormalizedStatus.new(JSON.parse(line, { symbolize_names: true }))
