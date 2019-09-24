@@ -1,1 +1,1 @@
-sidekiq: bundle exec sidekiq -c 1 -q default -q active_storage_analysis -q active_storage_purge
+sidekiq: bundle exec sidekiq -c 1 -q active_storage_analysis -q active_storage_purge -q default
