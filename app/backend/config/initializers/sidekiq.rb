@@ -2,7 +2,8 @@ require 'sidekiq'
 require 'sidekiq-unique-jobs'
 require 'sidekiq-scheduler'
 
-redis_config = YAML.load_file(Shared::Engine.root.join('config', 'redis.yml'))
+yaml         = Pathname.new(Shared::Engine.root.join('config', 'redis.yml'))
+redis_config = YAML.load(ERB.new(yaml.read).result)
 redis        = "#{redis_config[Rails.env]}"
 schedule     = YAML.load_file(Rails.root.join('config', 'scheduler.yml'))
 
