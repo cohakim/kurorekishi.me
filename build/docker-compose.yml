@@ -11,7 +11,8 @@ services:
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
-      DATABASE_URL: mysql2://root:@db:3306
+      DATABASE_URL: mysql2://root:root@db/kurorekishi_me:3306
+      REDIS_URL: redis://redis:6379/10
     entrypoint: ["./entrypoint.sh"]
     command: ["bundle", "exec", "foreman", "start"]
     ports:
@@ -34,7 +35,8 @@ services:
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
-      DATABASE_URL: mysql2://root:@db:3306
+      DATABASE_URL: mysql2://root:root@db/kurorekishi_me:3306
+      REDIS_URL: redis://redis:6379/10
     entrypoint: ["./entrypoint.sh"]
     command: ["bundle", "exec", "foreman", "start"]
     ports:
@@ -57,7 +59,8 @@ services:
       RAILS_ENV: production
       RAILS_LOG_TO_STDOUT: 'true'
       RAILS_SERVE_STATIC_FILES: 'true'
-      DATABASE_URL: mysql2://root:@db:3306
+      DATABASE_URL: mysql2://root:root@db/kurorekishi_me:3306
+      REDIS_URL: redis://redis:6379/10
     entrypoint: ["./entrypoint.sh"]
     command: ["bundle", "exec", "foreman", "start"]
     tty: true
@@ -68,17 +71,17 @@ services:
       - db
       - redis
   db:
-    image: mysql:5.7.22
+    image: mysql:5.7
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD=root
     ports:
       - '3306:3306'
     volumes:
       - dbdata:/var/lib/mysql:delegated
   redis:
-    image: redis:5.0.4
+    image: redis:latest
     ports:
-      - "6379:6379"
+      - '6379:6379'
     command: redis-server
     volumes:
        - redis-data:/data

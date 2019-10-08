@@ -24,6 +24,6 @@ class NotificationMessage < ActiveHash::Base
     finish: 'ツイ消ししましたっ ˚‧º·(˚ ˃̣̣̥⌓˂̣̣̥ )‧º·˚  | 呪われしツイートを一括削除！ 黒歴史クリーナー - https://kurorekishi.me/cleaner #黒歴史クリーナー'
 
   def self.find_by_random
-    all.sample
+    all.to_a.sample
   end
 end
