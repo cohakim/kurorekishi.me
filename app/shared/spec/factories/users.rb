@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :user do
     sequence :token do |n|
-      "#{n}-#{Faker::Internet.password(16)}"
+      "#{n}-#{Faker::Internet.password(min_length: 16)}"
     end
-    secret { Faker::Internet.password(8) }
+    secret { Faker::Internet.password(min_length: 8) }
     name   { Faker::Internet.username }
 
     factory :cohakim do

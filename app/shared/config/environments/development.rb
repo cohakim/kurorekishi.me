@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.require_master_key = true
+  config.require_master_key                         = true
 
   # class loading
   config.cache_classes                              = false

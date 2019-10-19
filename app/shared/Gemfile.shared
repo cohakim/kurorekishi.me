@@ -30,6 +30,7 @@ gem 'dry-struct'
 gem 'aws-sdk-s3'
 gem 'twitter'
 gem 'oauth'
+gem 'jwt'
 
 # dev utils
 group :development do
