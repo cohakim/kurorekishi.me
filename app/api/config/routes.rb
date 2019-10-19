@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   scope '/cleaner' do
     scope '/v1' do
-    end
-
-    scope '/v1i', module: :internal do
-      resources :users, only: :show
-      resources :orders, only: :show
+      get '/auth/twitter', as: :signin
+      get '/auth/:provider/callback', to: 'sessions#create'
+      resource :order, only: %i(show create)
     end
   end
 end

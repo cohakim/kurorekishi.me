@@ -11,7 +11,6 @@ gem 'puma', '~> 3.7'
 # controller
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'jwt'
 
 # serialize
 gem 'active_model_serializers', '~> 0.10.0'
