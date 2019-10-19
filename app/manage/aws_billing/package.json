@@ -22,12 +22,12 @@
   "devDependencies": {
     "babel-cli": "latest",
     "babel-preset-env": "latest",
-    "claudia": "latest"
+    "claudia": "^5.9.0"
   },
   "dependencies": {
-    "aws-sdk": "latest",
+    "aws-sdk": "^2.553.0",
     "child_process": "latest",
-    "dotenv": "latest",
+    "dotenv": "^8.2.0",
     "moment": "latest",
     "request": "latest"
   }
