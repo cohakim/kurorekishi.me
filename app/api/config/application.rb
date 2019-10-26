@@ -1,6 +1,11 @@
 require_relative 'boot'
 
-require 'rails/all'
+require 'rails'
+require 'active_model/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+# require 'action_view/railtie'
+require 'active_storage/engine'
 
 Bundler.require(*Rails.groups)
 
@@ -24,5 +29,9 @@ module API
 
     # logging
     config.logger = ActiveSupport::Logger.new(STDOUT)
+
+    # session
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
   end
 end

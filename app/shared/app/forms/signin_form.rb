@@ -16,15 +16,18 @@ class SigninForm < Dry::Struct
     uid
   end
 
+  def user
+    @user ||= User.find_or_initialize_by(id: user_id)
+  end
+
   def valid?
     true
   end
 
   def save!
-    user        = User.find_or_initialize_by(id: uid)
-    user.name   = info.nickname
-    user.token  = credentials.token
-    user.secret = credentials.secret
+    user.name            = info.nickname
+    user.token           = credentials.token
+    user.secret          = credentials.secret
     user.save!
   end
 end
