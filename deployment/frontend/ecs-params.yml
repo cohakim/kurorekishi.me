@@ -6,5 +6,5 @@ task_definition:
     frontend:
       essential: true
       cpu_shares: 256
-      mem_limit: 1250m
+      mem_limit: 750m
       mem_reservation: 512m

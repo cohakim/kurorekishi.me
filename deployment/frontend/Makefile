@@ -15,7 +15,7 @@ deploy:
 		--role ecsServiceRole                                       \
 		--container-name frontend                                   \
 		--container-port 3000                                       \
-		--target-group-arn arn:aws:elasticloadbalancing:ap-northeast-1:081239106582:targetgroup/kurorekishi-me/768a2337b922d784
+		--target-group-arn arn:aws:elasticloadbalancing:ap-northeast-1:081239106582:targetgroup/kurorekishi-me/afa124c1485d41b0
 
 .PHONY: awslogs
 awslogs:
