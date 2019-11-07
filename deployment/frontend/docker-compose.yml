@@ -7,7 +7,7 @@ services:
     volumes:
       - bundle:/bundle:cached
     entrypoint: ["./entrypoint.sh"]
-    command: ["rails", "server", "-b", "0.0.0.0"]
+    command: ["foreman", "start"]
     ports:
       - '3000'
     logging:
