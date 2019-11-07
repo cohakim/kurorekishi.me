@@ -5,11 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: kurorekishi_me_development
-  username: root
-  password: root
-  host: 127.0.0.1
-  port: 3306
+  url: <%= ENV['DATABASE_URL'] %>
 
 test:
   <<: *default
