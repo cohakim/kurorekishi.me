@@ -20,7 +20,8 @@ gem 'draper'
 gem 'haml-rails'
 
 # css preprocessor
-gem 'sass'
+# gem 'sass'
+gem 'sassc-rails'
 gem 'rails-uikit'
 gem 'uglifier', '>= 1.3.0'
 
