@@ -9,9 +9,9 @@ setup-cluster:
 	ecs-cli up \
 	--cluster $(CLUSTER) \
 	--launch-type EC2 \
-	--instance-type t3.large \
-	--size 2 \
-	--spot-price 0.05 \
+	--instance-type m3.medium \
+	--size 3 \
+	--spot-price 0.02 \
 	--image-id ami-04a735b489d2a0320 \
 	--vpc vpc-0ffee845844d25585 \
 	--subnets subnet-04b4ab206d6625e78,subnet-07588361410320e9c \
