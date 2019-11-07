@@ -6,7 +6,7 @@ task_definition:
     backend:
       essential: true
       cpu_shares: 512
-      mem_limit: 2560m
+      mem_limit: 2048m
       mem_reservation: 1024m
       healthcheck:
         test: "ps ax | grep -v grep | grep sidekiq > /dev/null"
