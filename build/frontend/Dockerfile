@@ -25,6 +25,7 @@ RUN \
     libxslt \
     mariadb-connector-c \
     nodejs \
+    sassc \
     yarn \
     tzdata
 
