@@ -47,7 +47,7 @@ COPY app/frontend/package.json /app/frontend/
 COPY app/frontend/yarn.lock /app/frontend/
 RUN bundle exec yarn install --check-files
 RUN bundle exec yarn install
-RUN bundle exec rake assets:precompile
+RUN bundle exec rails assets:precompile
 
 RUN apk del build-dependencies
 
