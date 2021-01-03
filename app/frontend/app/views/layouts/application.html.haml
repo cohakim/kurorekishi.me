@@ -3,6 +3,7 @@
   %head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#")
     = render 'layouts/meta'
     %title 黒歴史クリーナー
+    = favicon_link_tag('favicon.ico')
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
     = javascript_include_tag 'application'
