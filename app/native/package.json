@@ -21,7 +21,7 @@
     "react-native-web": "^0.11.7",
     "react-navigation": "^3.11.1",
     "unstated": "^2.1.1",
-    "yarn": "^1.19.1"
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^7.0.0"
