@@ -7,7 +7,7 @@ services:
     volumes:
       - bundle:/bundle:cached
     entrypoint: ["./entrypoint.sh"]
-    command: ["foreman", "start"]
+    command: ["bundle", "exec", "foreman", "start"]
     logging:
       driver: awslogs
       options:
