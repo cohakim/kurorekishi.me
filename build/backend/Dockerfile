@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-alpine
+FROM ruby:2.7.2-alpine
 MAINTAINER cohakim "cohakim@gmail.com"
 
 WORKDIR /app/backend
