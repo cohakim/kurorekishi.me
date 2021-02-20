@@ -21,5 +21,5 @@ Sidekiq.default_worker_options = {
   retry: 0,
   backtrace: false,
   unique: :until_executed,
-  lock_ttl: 3.minutes,
+  lock_ttl: 30,
 }
