@@ -25,7 +25,7 @@
     "claudia": "^5.9.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.553.0",
+    "aws-sdk": "^2.814.0",
     "child_process": "latest",
     "dotenv": "^8.2.0",
     "moment": "latest",
