@@ -6,7 +6,7 @@ gem 'shared', path: '../shared'
 eval_gemfile "../shared/Gemfile.shared"
 
 # server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 
 # controller
 gem 'omniauth'
